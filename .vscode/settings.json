@@ -1,0 +1,13 @@
+{
+    "python.pythonPath": "venv\\Scripts\\python.exe",
+    "python.linting.enabled": false,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "xd.lastPackage": "c:\\Users\\guibi\\OneDrive\\Documentos\\victor_paravatti\\Projeto 3 semestre\\static_files\\mini",
+    "xd.globalEditor": true,
+    "git.ignoreLimitWarning": true
+}
