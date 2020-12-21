@@ -1,83 +1,460 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Comatible" content="IE=edge">
-        <title>Navbar</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/node_modules/bootstrap/compile/bootstrap.css' %}">
-        <link rel="stylesheet" href="{% static 'css/gallery.theme.css' %}">
-        <link rel="stylesheet" href="{% static 'css/gallery.min.css' %}">
-        <link rel="stylesheet" href="{% static 'css/stilo2.css' %}">
-        
-        <title>{% block  title %}{% endblock %}</title>
-          <link
-                href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"
-                rel="stylesheet"
-            />
-    </head>
-    <body>
-        <nav class="navbar">
-            <ul class="navbar-nav">
-                <li class="logo">
-                    <a href="#" class="nav-link">
-                        <span class="link-text logo-text">minis</span>
-                        <svg
-                            aria-hidden="true"
-                            focusable="false"
-                            data-prefix="fad"
-                            data-icon="angle-double-right"
-                            role="img"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512"
-                            class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"
-                        >
-                            <g class="fa-group">
-                                <path
-                                    fill="currentColor"
-                                    d="M224 273L88.37 409a23.78 23.78 0 0 1-33.8 0L32 386.36a23.94 23.94 0 0 1 0-33.89l96.13-96.37L32 159.73a23.94 23.94 0 0 1 0-33.89l22.44-22.79a23.78 23.78 0 0 1 33.8 0L223.88 239a23.94 23.94 0 0 1 .1 34z"
-                                    class="fa-secondary"
-                                ></path>
-                                <path
-                                    fill="currentColor"
-                                    d="M415.89 273L280.34 409a23.77 23.77 0 0 1-33.79 0L224 386.26a23.94 23.94 0 0 1 0-33.89L320.11 256l-96-96.47a23.94 23.94 0 0 1 0-33.89l22.52-22.59a23.77 23.77 0 0 1 33.79 0L416 239a24 24 0 0 1-.11 34z"
-                                    class="fa-primary"
-                                ></path>
-                            </g>
-                        </svg>
-                    </a>
-                </li>
+<head>
+    <meta charset="UTF-8">
+    <title>Propjeto2</title>
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/compile/bootstrap.css' %}"> 
+    <link rel="stylesheet" href="{% static 'node_modules/css/perso.css' %}">     
+</head>
 
-                <li class="nav-item">
-                    <a href="carrinho" class="nav-link">
-                        <img align="center" src="https://ik.imagekit.io/VictorParavatti/icons8-carrinho-de-compras-carregado-40_IaKyFoUiv.png">
-                        <span class="link-text">Carrinho</span>
-                    </a>
-                </li>
-                <li class="nav-item" id="themeButton">
-                    <a href="#" class="nav-link">
-                        <img align="center" src="https://ik.imagekit.io/VictorParavatti/icons8-login-arredondado-_-direita-40_1R9A2vK6U.png">                
-                        <span class="link-text">Login</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div id="carousel" class="carousel" data-ride="carousel">
-            <div class="carousel-inner">
-                <div="carousel-item active">
-                    <img src="https://ik.imagekit.io/VictorParavatti/2_017mPOIiW.png" class="img-fluid d-block">
-                </div>
 
-                <div="carousel-item">
-                    <img src="https://ik.imagekit.io/VictorParavatti/1_Cq7ZbsPI4.png" class="img-fluid d-block">
-                </div>
+<body>                                                                    <!-- Menu nav bar -->
 
-                <div="carousel-item">
-                    <img src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png" class="img-fluid d-block">
-                </div>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-info">
+        <div class="container">
+
+            <a class="navbar-brand h1 mb-0" href="#" >Minimals</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                <span class="navbar-toggler-icon"></span>               
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSite">
+                
+                                                                <!--Barra de pesquisa no menu-->
+
+                <form class="form-inline ml-auto col-form-label-sm">
+                    <input class="form-control ml-5" type="search" placeholder="Buscar">
+                        <button class="btn btn-outline-darkml-3 btn-outline-dark ml-3 my-2 my-sm-0 justify-content-lg-between" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                            </svg>
+                        </button>                    
+                </form>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark " href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                            </svg>
+                            <span class="link-text">Carrinho</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="login/"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM11.5 2H11V1h.5A1.5 1.5 0 0 1 13 2.5V15h-1V2.5a.5.5 0 0 0-.5-.5z"/>
+                                <path fill-rule="evenodd" d="M10.828.122A.5.5 0 0 1 11 .5V15h-1V1.077l-6 .857V15H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117z"/>
+                                <path d="M8 9c0 .552.224 1 .5 1s.5-.448.5-1-.224-1-.5-1-.5.448-.5 1z"/>
+                              </svg>                
+                            <span class="link-text">Login</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                              </svg>                
+                            <span class="link-text">Meus Pedidos</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text-dark dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                            </svg>
+                            Social
+                        </a>
+
+                        <div class="dropdown-menu bg-dark">
+                            <a class="text-white bg-dark dropdown-item" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Facebook </a>
+                            <a class="text-white bg-dark dropdown-item" href="#"> Instagram </a>
+                            <a class="text-white bg-dark  dropdown-item" href="#"> Twiter </a>
+                        </div>
+                    </li>
+                </ul>                
             </div>
-        </div>                
-    </body>
+        </div>
+    </nav>
+
+    
+                                                                <!--  Final do Menu nav bar -->
+
+
+                                                                <!-- Implementação do carrosel de imagens-->
+
+    <div id="carouselSite" class="carousel slide" data-ride="carousel">
+      
+
+        <ol class="carousel-indicators">
+            <li data-target="carouselSite" data-slide-to="0" class="active"></li>
+            <li data-target="carouselSite" data-slide-to="1"></li>
+            <li data-target="carouselSite" data-slide-to="2"></li>
+            <li data-target="carouselSite" data-slide-to="3"></li>
+        </ol>
+
+
+        <div class="carousel-inner">
+
+           
+                                                                <!-- Imagem 1 Do Carrosel-->
+            <div class="carousel-item active">
+
+               <img src="https://ik.imagekit.io/VictorParavatti/miniExemplo_o5sQEl8D7.jpg" class="img-fluid d-block">
+
+               <div class="carousel-caption text-danger">
+                    <h1 class="display-4">Oferta</h1>
+                    <p class="lead display-4">R$127,52</p>
+               </div>
+
+           </div>
+
+                                                                <!-- Imagem 2 Do Carrosel-->
+
+           <div class="carousel-item">
+
+                <img src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png" class="img-fluid d-block">
+                
+                <div class="carousel-caption text-danger">
+                    <h1 class="dysplay-1">Oferta</h1>
+                    <p class="lead display-4">R$127,52</p>
+                </div>
+
+            </div>
+
+                                                                <!-- Imagem 3 Do Carrosel-->
+
+            <div class="carousel-item">
+
+                <img src="https://ik.imagekit.io/VictorParavatti/1_Cq7ZbsPI4.png" class="img-fluid d-block">
+                
+                <div class="carousel-caption text-danger">
+                    <h1 class="dysplay-1">Oferta</h1>
+                    <p class="lead display-4">R$147,52</p>
+                </div>
+
+            </div>
+
+                                                                 <!-- Imagem 4 Do Carrosel-->
+
+            <div class="carousel-item">
+
+                <img src="https://ik.imagekit.io/VictorParavatti/2_017mPOIiW.png" class="img-fluid d-block">
+                
+                <div class="carousel-caption text-danger">
+                    <h1 class="dysplay-1">Oferta</h1>
+                    <p class="lead display-4">R$137,52</p>
+                </div>
+
+            </div>
+                                                                 <!-- Fim das Imagems Do Carrosel-->
+        </div>
+       
+                                                                    <!-- Controles do Do Carrosel-->
+
+        <a class="carousel-control-prev " href="#carouselSite" role="button" data-slide="prev">
+        
+            <span class="carousel-control-prev-icon"></span>
+            <span class="sr-only">Anterior</span>
+
+        </a>
+        <a class="carousel-control-next" href="#carouselSite" role="button" data-slide="next">
+        
+            <span class="carousel-control-next-icon"></span>
+            <span class="sr-only">Avançar</span>
+       </a>                                                 <!--Termino dos Controles do Do Carrosel-->
+
+                                                                    <!--Termino Do Carrosel-->
+
+    </div>   
+    
+    
+
+
+                                                                    <!--Conteiner das miniaturas dos produtos -->  
+    
+    <div class="jumbotron jumbotron-fluid">
+
+        <div class="container">
+                                                                     <!--Controle da Exibiçao dos produtos-->
+            <div class="row">
+
+                <div class="col-12">
+
+                    <ul class="nav nav-pills justify-content-center" id="pills-nav" role="tablist">
+
+                        <li class="nav-item">
+                            <a class="text-dark nav-link active" id="nav-pills-01" data-toggle="pill" href="#nav-item-01">Automoveis</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="text-dark nav-link " id="nav-pills-02" data-toggle="pill" href="#nav-item-02">Aviões</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="nav-pills-content">
+                                                                    <!-- fim do controle dos produtos -->
+
+                                                                    <!--Miniaturas de Automoveis -->
+                        <!--Item 1-->
+                        <!--Miniaturas de Carrinhos-->
+                        <div class="tab-pane fade show active" id="nav-item-01" role="tabpanel">
+                            <div class="my-5">
+                                <div class="row">
+                                    <div class="col-12 text-center my-5">
+                                        <h1 class="dysplay-2">Miniaturas de Automoveis</h1>                                    
+                                        <div class="row mb-5 my-5 ">
+                                            
+
+                                            <!--card do produto 1 -->
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="https://www.instagram.com/gui.paravatti/">
+                                                        <img class="card-img " src="https://ik.imagekit.io/VictorParavatti/1_Cq7ZbsPI4.png">
+                                                    </a>
+                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--card do produto 2 -->
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#">
+                                                        <img class="card-img" src="https://ik.imagekit.io/VictorParavatti/1_DDFYqyUTxZ.jpg">
+                                                    </a>
+                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--card do produto 3 -->
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#">
+                                                        <img class="card-img" src="https://ik.imagekit.io/VictorParavatti/5_up1x67mAXh8.jpg">
+                                                    </a>
+                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--card do produto 4 -->
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#">
+                                                        <img class="card-img" src="https://ik.imagekit.io/VictorParavatti/4_cd_cdoezB6.jpg">
+                                                    </a>
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <!--card do produto 5 -->
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#">
+                                                        <img class="card-img" src="https://ik.imagekit.io/VictorParavatti/2_WDKgYTsPf.jpg">
+                                                    </a>
+                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <!--card do produto 6-->
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/8_nRre03atkh.jpg"></a>
+                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <!--card do produto 7 -->
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/9_h6FhZ2FJK.jpg"></a>
+                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                            <!--card do produto 8 -->
+                                            <div class="col-sm-3 my-5">
+                                                
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/7_TG3DE8Brek.jpg"></a>                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Item 2-->
+                        <!--Miniaturas de Aviões-->
+
+                        <div class="tab-pane fade" id="nav-item-02" role="tabpanel">
+
+                            <div class="my-5">
+                                <div class="row">
+                                    <div class="col-12 text-center my-5">
+                                        <h1 class="dysplay-2">Miniaturas de Aviões</h1>                                    
+                                        <div class="row mb-5 my-5 ">                                            
+
+                                            <!--card do produto 1 -->
+
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png"></a>
+                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!--card do produto 2 -->
+
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png"></a>
+                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--card do produto 3 -->
+
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                   <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png"></a> 
+                                                    
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!--card do produto 4 -->
+
+                                            <div class="col-sm-3 my-5">
+                                                <div class="card aument-transi">
+                                                    <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png"></a>
+                                                    <div class="card-body">                        
+                                                        <h3 class="card-title text-center">Preço</h3>
+                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                       
+                    </div>
+                </div>
+            </div>                                                
+        </div>                                                      <!--Miniaturas de Automoveis -->
+
+                                                                            <!--Rodapé-->
+    
+
+        </div>
+        <div class="row mt-3">
+            <div class='col-12'><hr></div>
+            <div class="col-sm-4 mt-2 text-center">
+                <h4 class="title"> Pagamentos</h4>
+                <img class="box-flags sm-4" src="https://ik.imagekit.io/VictorParavatti/pagamento_hBRNbFILzx1.png" alt="Imagem Pagamentos" height="60">
+
+            </div>
+            <div class="col-sm-4 mt-2 text-center">
+                <h4 class="title"> Certificados De Segurança</h4>
+                <img class="box-flags sm-4" src="https://ik.imagekit.io/VictorParavatti/selo_TTwmniVKd9F.png" alt="Imagem Pagamentos" height="80">
+                <img class="box-flags sm-4" src="https://ik.imagekit.io/VictorParavatti/google_safe_browsing_zGZ7CGtrpdw.png" alt="Imagem Pagamentos" height="40">
+                <img class="box-flags " src="https://ik.imagekit.io/VictorParavatti/compra_segura_0ujPr6ZwK.png" alt="Imagem Pagamentos" height="30">
+
+            </div>
+            <div class="col-sm-4 mt-2 text-center">
+                <h4 class="title"> Institucional </h4>
+                <div class="list-group">
+                    <a href="#" class="list-group-item-action list-group">Como Comprar</a>
+                    <a href="#" class="list-group-item-action list-group">Como Pagar</a>
+                    <a href="#" class="list-group-item-action list-group">Nossa Equipe</a>
+                </div>
+                
+        </div>
+
+                                                                                <!-- Citação-->
+        <div class="col-12 mt-5">
+            <blockquote>
+                <p class="mb-2 ml-4  mr-4 text-black-50"> 2020 © Todos os Direitos Reservados - Minimals Comércio de Brinquedos Ltda  |
+                    R. Das flores, 108 - casa - Fonte Alta - Extrema-MG / CEP: 37640-000 (35) 98833-6321 CNPJ 08.004.619/0001-86 
+                    <p class="ml-4 mr-4 text-black-50 "> Fotos meramente ilustrativas |
+                    Ofertas válidas enquanto durarem nossos estoques | Vendas sujeitas à análise e confirmação de dados.
+                    Os preços, promoções e condições de pagamento são válidos exclusivamente para compras efetuadas em nossa loja virtual.</p>
+                </p>
+            </blockquote>
+        </div>
+    </div>
+
+
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+  
+   
+
+
+
+</body>
 </html>
