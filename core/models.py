@@ -121,11 +121,11 @@ class Funcionario(models.Model):
         verbose_name_plural = 'Funcionários'                           
 
 class Cargo(models.Model):
-    codigo = models.DecimalField(max_digits=10, decimal_places=6)
+    codigo = models.DecimalField(max_digits=10, decimal_places=0)
     nome = models.CharField(max_length=45)
 
-    def __str__(self):
-        return self.codigo + '(' + str(self.id) + ')'
+    def __int__(self):
+        return self.codigo
 
     class Meta:
         verbose_name_plural = 'Cargos'   

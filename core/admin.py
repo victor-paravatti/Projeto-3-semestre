@@ -1,7 +1,7 @@
 from django.contrib import admin
 from core.models import Cargo, Cliente, Funcionario, Pagamento, Produto, Fabricante, Setor, Status, TipoSolicitacao
 
-# Register your models here.
+
 
 admin.site.register(Cliente)
 admin.site.register(Funcionario)
