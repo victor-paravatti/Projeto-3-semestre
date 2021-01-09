@@ -26,6 +26,9 @@ class Pedido(models.Model):
     datpedido = models.CharField(max_length=8, blank=True, null=True)
     valorTotal = models.DecimalField(max_digitis=10, decimal_places=6)
     id_cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
+    id_funcionario = models.ForeignKey('Funcionario', on_delete=models.CASCADE)
+    id_pagamento = models.ForeignKey('Pagamento', on_delete=models.CASCADE)
+    id_status = models.ForeingKey('Status', on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -35,10 +38,32 @@ class Pedido(models.Model):
         verbose_name_plural = 'Pedidos'
 
 
+class Pagamento(models.Model):
+    codigo = models.DecimalField(max_digitis=10, decimal_places=6)
+    metodo = models.CharField(max_length=45)
 
+    def __str__(self):
+        return self.codigo + '(' + str(self.id) + ')'
 
-    
+    class Meta:
+        verbose_name_plural = 'Pagamentos'
 
+class Solicitacao(models.Model):
+    codigo = models.DecimalField(max_digitis=10, decimal_places=6)
+    descricao = models.CharField(max_length=200)
+    id_pedido = models.ForeignKey('Pedido', on_delete=models.CASCADE)
+    id_status = models.ForeignKey('Status', on_delete=models.CASCADE)
+    id_tipoSolicitacao = models.ForeignKey('TipoSolicitacao', on_delete=models.CASCADE)
+    id_funcionario = models.ForeignKey('Funcionario', on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.codigo + '(' + str(self.id) + ')'
 
+    class Meta:
+        verbose_name_plural = 'Solicitações'
 
+class TipoSolicitacao(models.Model):
+    codigo = models.DecimalField(max_digitis=10, decimal_places=6)
+    tipo_solicitacao = models.CharField(max_length=45)            
+
+    def __str__

@@ -17,12 +17,12 @@ def carrinho(request):
     return render(request, "core/carrinho.html", contexto)
 
 
-@login_required
+
 def login(request):
     return render(request, 'core/login.html')
 
 
-@login_required
+
 def cadastro(request):
     form = FormCliente(request.POST or None)
     contexto = {'form': form, 'acao': 'Cadastro de Cliente', 'titulo': 'Cadastar'}
