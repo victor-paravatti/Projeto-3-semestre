@@ -67,7 +67,7 @@ class TipoSolicitacao(models.Model):
     tipo_solicitacao = models.CharField(max_length=45)            
 
     def __str__(self):
-        return self.codigo + '(' + str(self.id) + ')'
+        return self.codigo
 
     class Meta:
         verbose_name_plural = 'Tipos de Solicitações'
