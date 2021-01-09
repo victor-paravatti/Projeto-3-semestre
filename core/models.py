@@ -57,7 +57,7 @@ class Solicitacao(models.Model):
     id_funcionario = models.ForeignKey('Funcionario', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.codigo + '(' + str(self.id) + ')'
+        return self.codigop
 
     class Meta:
         verbose_name_plural = 'Solicitações'
