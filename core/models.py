@@ -14,7 +14,7 @@ class Cliente(models.Model):
     senha = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.nome + '(' + str(self.id) + ')'
+        return self.cpf + '(' + str(self.id) + ')'
 
     class Meta:
         verbose_name_plural = 'Clientes'
@@ -24,11 +24,12 @@ class Pedido(models.Model):
     numero = models.CharField(max_length=10)
     datentrega = models.CharField(max_length=8)
     datpedido = models.CharField(max_length=8, blank=True, null=True)
-    valor
+    valorTotal = models.DecimalField(max_digitis=10, decimal_places=6)
+    id_cliente = models.ForeignKey('Cliente', on_delete=models.CASCADE)
 
 
     def __str__(self):
-        return self.nome + '(' + str(self.id) + ')'
+        return self.numero + '(' + str(self.id) + ')'
 
     class Meta:
         verbose_name_plural = 'Pedidos'
