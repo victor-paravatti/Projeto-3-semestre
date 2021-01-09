@@ -1,4 +1,5 @@
-{% extends 'base.html' %}
+{% load static %}
+
 
 {% block title %}
 Cadastro-Cliente
@@ -18,7 +19,7 @@ Cadastro-Cliente
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-info">
         <div class="container">
     
-            <a class="navbar-brand h1 mb-0" href="#" >Minimals</a>
+            <a class="navbar-brand h1 mb-0" href="/" >Minimals</a>
     
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
                 <span class="navbar-toggler-icon"></span>               
@@ -80,12 +81,11 @@ Cadastro-Cliente
     </nav>
     
     <!formulario do cadastro do cliente!>
-    
+
     <div class='container'>
         <div class="row">
             <div class="mt-5 display-3">    
-                <h3>{{ acao }}</h3>
-                <h3>Cadastro do Veiculo</h3>
+                <h3 class="justify-content-center">{{ acao }}</h3>
                 <div class="mt-5 d-flex justify-content-center form_container">
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
