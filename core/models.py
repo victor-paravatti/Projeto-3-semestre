@@ -78,7 +78,7 @@ class Status(models.Model):
 
 
     def __str__(self):
-        return self.codigo + '(' + str(self.id) + ')'
+        return self.codigo
 
     class Meta:
         verbose_name_plural = 'Status'            
@@ -89,7 +89,7 @@ class Carrrinho(models.Model):
     id_pedido = models.ForeignKey('Pedido', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.codigo + '(' + str(self.id) + ')'
+        return self.codigo
 
     class Meta:
         verbose_name_plural = 'Carrinhos'
