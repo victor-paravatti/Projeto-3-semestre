@@ -20,7 +20,9 @@
                       </svg>
                     <h1> Login</h1>
                     <div class="mt-5 d-flex justify-content-center form_container">
-                        <form>
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p}}
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-user"></i>
