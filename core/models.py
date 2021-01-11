@@ -43,7 +43,7 @@ class Pagamento(models.Model):
     metodo = models.CharField(max_length=45)
 
     def __str__(self):
-        return self.codigo + '(' + str(self.id) + ')'
+        return self.codigo
 
     class Meta:
         verbose_name_plural = 'Pagamentos'
@@ -57,7 +57,7 @@ class Solicitacao(models.Model):
     id_funcionario = models.ForeignKey('Funcionario', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.codigo + '(' + str(self.id) + ')'
+        return self.codigop
 
     class Meta:
         verbose_name_plural = 'Solicitações'
@@ -67,7 +67,7 @@ class TipoSolicitacao(models.Model):
     tipo_solicitacao = models.CharField(max_length=45)            
 
     def __str__(self):
-        return self.codigo + '(' + str(self.id) + ')'
+        return self.codigo
 
     class Meta:
         verbose_name_plural = 'Tipos de Solicitações'
