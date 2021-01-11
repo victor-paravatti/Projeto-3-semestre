@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Listagem-produto
+{% endblock %}
+
+{% block main %}
+    <h3>Lista de produtos</h3>
+
+    {% for produto in produtos %}
+        Titulo: {{ produto.titulo }} <br>
+        Valor: {{ produto.valor }} <br>
+    {% endfor %}
+    
+{% endblock %}

@@ -20,9 +20,8 @@
                       </svg>
                     <h1> Login</h1>
                     <div class="mt-5 d-flex justify-content-center form_container">
-                        <form method="post" enctype="multipart/form-data">
+                        <form method="post">
                             {% csrf_token %}
-                            {{ form.as_p}}
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-user"></i>
@@ -53,7 +52,7 @@
                                 </div>
                             </div>
                                 <div class="d-flex justify-content-center  login_container">
-                                    <button type="button" name="button" class=" btn-success login_btn">
+                                    <button type="submit" name="button" class=" btn-success login_btn">
                                         <h5>Login</h5>
                                     </button>
                                 </div>

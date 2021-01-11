@@ -1,13 +1,11 @@
 from django.db.models import fields
 from django.forms import ModelForm
-from core.models import Cliente, Funcionario, Produto, Fabricante, Setor, Cargo,Status,TipoSolicitacao, Pagamento
+from core.models import Cliente, Funcionario, Produto, Fabricante, Setor, Cargo,Status, TipoSolicitacao, Pagamento
+from django import forms
     
 
 
-class FormCliente(ModelForm):
-    class Meta:
-        model = Cliente
-        fields = '__all__'
+     
 
 
 class FormFuncionario(ModelForm):
@@ -56,3 +54,12 @@ class FormPagamento(ModelForm):
     class Meta:
         model = Pagamento
         fields = '__all__'
+    
+
+class FormCliente(forms.ModelForm):
+    class Meta:
+        model = Cliente
+        fields = ('email', 'senha')
+        widgets = {
+            'password': forms.PasswordInput(),
+        }

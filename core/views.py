@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from core.forms import FormCliente
+from core.models import Produto
 
 def home(request):
     return render(request, 'core/index.html')
@@ -31,5 +32,11 @@ def cadastro(request):
         return redirect('url_login')
     else:        
         return render(request, "core/cadastro.html", contexto)
+
+
+def listagem_produto(request):
+    produto = Produto.objects.all()
+    contexto = {'produtos': produtos}
+    return render(request, "core/index.html", contexto)
 
     

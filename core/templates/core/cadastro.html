@@ -82,20 +82,18 @@ Cadastro-Cliente
     
     <!formulario do cadastro do cliente!>
 
-    <div class='container'>
-        <div class="row">
-            <div class="mt-5 display-3">    
-                <h3 class="justify-content-center">{{ acao }}</h3>
-                <div class="mt-5 d-flex justify-content-center form_container">
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form.as_p}}
-                        <button type="submit">Salvar</button> &nbsp;
-                        <button class="btn-sucess" type="button" onclick="location.href='/'">Cancelar</button>
-        
-                    </form>
-                </div>                
-            </div>
+    <div class='jumbotron'>
+        <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
+            <h2 class="mt-5">{{ acao }}</h2>
+            <div class="ml-5">
+                <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
+                    {% csrf_token %}
+                    {{ form.as_p}}
+                    <button class="bg-success" type="submit">Salvar</button> &nbsp;
+                    <button class="bg-danger" type="button" onclick="location.href='/'">Cancelar</button>
+                
+                </form>
+            </div>                
         </div>
     </div>
 
