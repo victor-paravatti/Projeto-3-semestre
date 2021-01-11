@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from core.views import home, carrinho, cadastro
+from core.views import cadastrar, home, carrinho, login
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -9,7 +9,9 @@ urlpatterns = [
     path('account/', include('django.contrib.auth.urls')),
     path('', home, name='url_home'),
     path('carrinho/', carrinho, name='url_carrinho'),
-    path('cadastro/', cadastro, name='url_cadastro')
+    path('login/', login, name='url_login'),
+    path('cadastrar/', cadastrar.as_view(), name='url_cadastrar')
+
     
 ]
 
