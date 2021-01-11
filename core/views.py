@@ -4,7 +4,9 @@ from core.forms import FormCliente
 from core.models import Produto
 
 def home(request):
-    return render(request, 'core/index.html')
+    produto = Produto.objects.all()
+    contexto = {'produtos': produto}
+    return render(request, 'core/index.html', contexto)
 
 
 @login_required
@@ -19,8 +21,7 @@ def carrinho(request):
 
 
 
-def login(request):
-    return render(request, 'core/login.html')
+
 
 
 
@@ -34,9 +35,5 @@ def cadastro(request):
         return render(request, "core/cadastro.html", contexto)
 
 
-def listagem_produto(request):
-    produto = Produto.objects.all()
-    contexto = {'produtos': produtos}
-    return render(request, "core/index.html", contexto)
 
     
