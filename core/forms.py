@@ -1,11 +1,7 @@
-from django.db.models import fields
 from django.forms import ModelForm
-from core.models import Cliente, Funcionario, Produto, Fabricante, Setor, Cargo,Status, TipoSolicitacao, Pagamento
+from core.models import Cliente, Funcionario, Produto, Fabricante, Setor, \
+    Cargo, Status, TipoSolicitacao, Pagamento
 from django import forms
-    
-
-
-     
 
 
 class FormFuncionario(ModelForm):
@@ -44,7 +40,7 @@ class FormStatus(ModelForm):
         fields = '__all__'
 
 
-class  FormTipoSolicitacao(ModelForm):
+class FormTipoSolicitacao(ModelForm):
     class Meta:
         model = TipoSolicitacao
         fields = '__all__'

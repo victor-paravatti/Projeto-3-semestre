@@ -6,10 +6,12 @@ from django.contrib.auth.decorators import login_required
 from core.forms import FormCliente
 from core.models import Produto
 
+
 def home(request):
     produto = Produto.objects.all()
     contexto = {'produtos': produto}
-    return render(request, 'core/index.html',contexto)
+    return render(request, 'core/index.html', contexto)
+
 
 @login_required
 def carrinho(request):
@@ -18,16 +20,14 @@ def carrinho(request):
     compra = data['compra']
     items = data['items']
 
-    contexto = {'items':items, 'compra':compra, 'carrinhoItems':carrinhoItems}
+    contexto = {'items': items, 'compra': compra, 'carrinhoItems': carrinhoItems}
     return render(request, "core/carrinho.html", contexto)
 
 
-
-class cadastrar(generic.CreateView):
+class Cadastrar(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'templates/registration/cadasto.html'
-
 
 
 def login(request):
@@ -38,8 +38,3 @@ def login(request):
         return redirect('url_login')
     else:        
         return render(request, "url_login", contexto)
-
-
-
-
-    
