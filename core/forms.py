@@ -55,7 +55,7 @@ class FormPagamento(ModelForm):
 class FormCliente(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ('email', 'senha')
+        fields = '__all__'
         widgets = {
             'password': forms.PasswordInput(),
         }

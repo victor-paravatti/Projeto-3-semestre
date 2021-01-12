@@ -1,9 +1,4 @@
 {% load static %}
-
-
-{% block title %}
-Cadastro-Cliente
-{% endblock %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,8 +78,8 @@ Cadastro-Cliente
     <!formulario do cadastro do cliente!>
 
     <div class='jumbotron'>
-        <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5">{{ acao }}</h2>
+        <div class=""> 
+            <h2 class=" mt-5 col-xs-12 col-sm-6 col-md- col-lg-3">Cadastro</h2>
             <div class="ml-5">
                 <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
                     {% csrf_token %}
