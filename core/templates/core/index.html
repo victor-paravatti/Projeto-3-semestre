@@ -257,34 +257,33 @@
                                         
                                             <!--card do produto 1 -->
                                             
-                                                  
-                                                    {% for produto in produtos %}
-                                                        {% ifequal produto.id_fabricante "IronStudios" %}
-                                                            <div class="col-sm-3 my-5">
-                                                                <div class="card aument-transi">
+                                                {% for produto in produtos %}
+                                                    {% if produto.id_fabricante.nome == 'Iron Studios' %}
+                                                        <div class="col-sm-3 my-5">
+                                                            <div class="card aument-transi">
+                                                                
+                                                                <a class="list-inline-item" href="{% url 'url_exibir_produto' produto.id %}">
                                                                     
-                                                                    <a class="list-inline-item" href="{% url 'url_exibir_produto' produto.id %}">
-                                                                        
-                                                                                <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>                                                            
-                                                                        
-                                                                    </a>
+                                                                            <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>                                                            
                                                                     
-                                                                    <div class="card-body">                        
-                                                                        <h5 class="card-title text-center " style="width: 200px;height:50px ;">
-                                                                                {{ produto.titulo }}
-                                                                        </h5>
-                                                                        <h5 class="card-title text-center text-secondary " style="width: 200px;height:40px ;">
-                                                                        Escala:  {{ produto.escala }}
+                                                                </a>
+                                                                
+                                                                <div class="card-body">                        
+                                                                    <h5 class="card-title text-center " style="width: 200px;height:50px ;">
+                                                                            {{ produto.titulo }}
                                                                     </h5>
-                                                                            
-                                                                        <h4 class="card-text text-center text-success" style="width: 200px;height:16px ;">
-                                                                                R$ {{ produto.valor }} <h6 class="text-danger">Em até 12x sem juros</h6>
-                                                                        </h4>
-                                                                    </div>
+                                                                    <h5 class="card-title text-center text-secondary " style="width: 200px;height:40px ;">
+                                                                    Escala:  {{ produto.escala }}
+                                                                </h5>
+                                                                        
+                                                                    <h4 class="card-text text-center text-success" style="width: 200px;height:16px ;">
+                                                                            R$ {{ produto.valor }} <h6 class="text-danger">Em até 12x sem juros</h6>
+                                                                    </h4>
                                                                 </div>
                                                             </div>
-                                                        {% endifequal %}
-                                                    {% endfor %}
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
                                             </form>
                                         </div>
                                     </div>
