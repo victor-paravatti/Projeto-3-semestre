@@ -85,24 +85,23 @@
             </div>
         </div>
     </nav>
-    <!formulario do atualizar produto!>
+    <!formulario do listar cargo!>
 
     <div class='jumbotron'>
         <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5"> Listar Produtos </h2>
+            <h2 class="mt-5"> Listar Cargos </h2>
             <div class="ml-5">
                 <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
                     {% csrf_token %}
                     {{ form.as_p}}
+                    <input type="text" name="codigo"> &nbsp; <button type="submit">Pesquisar</button>
                 </form>
-                {%for produto in produtos%}
-                    Título: {{ produto.titulo }} <br>
-                    Valor: {{ produto.valor }} <br>
-                    Escala: {{ produto.escala }} <br>
-                    Lote: {{ produto.lote }} <br>
-                    Descrição: {{ produto.descricao }} <br>
-                    Fabricante: {{ produto.id_fabricante }} <br>
-                    <img src="{{ produto.foto.url }}" width="500"> <br>
+                ---------------------------------<br>  
+                {%for cargo in cargos%}
+                    Código: {{ cargo.codigo }} &nbsp; <a href="{% url 'url_editar_cargo' cargo.id %}">Editar</a> &nbsp;
+                    <a href="{% url 'url_excluir_cargo' cargo.id %}">Excluir</a><br>
+                    Nome: {{ cargo.nome }} <br>
+                    -------------------------------<br>
                 {% endfor %}
             </div>                
         </div>

@@ -85,24 +85,23 @@
             </div>
         </div>
     </nav>
-    <!formulario do atualizar produto!>
+    <!formulario do listar setor!>
 
     <div class='jumbotron'>
         <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5"> Listar Produtos </h2>
+            <h2 class="mt-5"> Listar Setores </h2>
             <div class="ml-5">
                 <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
                     {% csrf_token %}
                     {{ form.as_p}}
+                    <input type="text" name="codigo"> &nbsp; <button type="submit">Pesquisar</button>
                 </form>
-                {%for produto in produtos%}
-                    Título: {{ produto.titulo }} <br>
-                    Valor: {{ produto.valor }} <br>
-                    Escala: {{ produto.escala }} <br>
-                    Lote: {{ produto.lote }} <br>
-                    Descrição: {{ produto.descricao }} <br>
-                    Fabricante: {{ produto.id_fabricante }} <br>
-                    <img src="{{ produto.foto.url }}" width="500"> <br>
+                ---------------------------------<br>  
+                {%for setor in setors%}
+                    Código: {{ setor.codigo }} &nbsp; <a href="{% url 'url_editar setor' setor.id %}">Editar</a> &nbsp;
+                    <a href="{% url 'url_excluir setor' setor.id %}">Excluir</a><br>
+                    Nome: {{ setor.nome }} <br>
+                    -------------------------------<br>
                 {% endfor %}
             </div>                
         </div>
