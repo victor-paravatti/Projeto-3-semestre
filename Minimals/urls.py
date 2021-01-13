@@ -3,7 +3,7 @@ from django.urls import path, include
 from core.views import Cadastrar, home, carinho, cadastrar_cliente, cadastrar_produto, \
     listar_produto, editar_produto, excluir_produto, exibir_produto, cadastrar_funcionario, \
     listar_funcionario, editar_funcionario, excluir_funcionario, cadastrar_cargo, listar_cargo, \
-    editar_cargo, excluir_cargo
+    editar_cargo, excluir_cargo, cadastrar_setor, listar_setor, editar_setor, excluir_setor
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -27,7 +27,11 @@ urlpatterns = [
     path('cadastrar_cargo/', cadastrar_cargo, name='url_cadastrar_cargo'),
     path('listar_cargo/', listar_cargo, name='url_listar_cargo'),
     path('editar_cargo/<int:id>/', editar_cargo, name='url_editar_cargo'),
-    path('excluir_cargo/<int:id>/', excluir_cargo, name='url_excluir_cargo')
+    path('excluir_cargo/<int:id>/', excluir_cargo, name='url_excluir_cargo'),
+    path('cadastrar_setor/', cadastrar_setor, name='url_cadastrar_setor'),
+    path('listar_setor/', listar_setor, name='url_listar_setor'),
+    path('editar_setor/<int:id>/', editar_setor, name='url_editar_setor'),
+    path('excluir_setor/<int:id>/', excluir_setor, name='url_excluir_setor')
 
 ]
 
