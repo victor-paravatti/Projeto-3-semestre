@@ -24,7 +24,6 @@ class Cadastrar(generic.CreateView):
     template_name = 'registration/cadastrar.html'
 
 
-
 def carinho(request):
 	return render(request, 'core/carrinho.html')
 
