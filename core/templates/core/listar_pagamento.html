@@ -109,11 +109,11 @@
             </div>
         </div>
     </nav>
-    <!formulario do listar setor!>
+    <!formulario do listar pagamento!>
 
     <div class='jumbotron'>
         <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5"> Listar Setores </h2>
+            <h2 class="mt-5"> Listar Métodos de Pagamento </h2>
             <div class="ml-5">
                 <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
                     {% csrf_token %}
@@ -121,10 +121,10 @@
                     <input type="text" name="codigo"> &nbsp; <button type="submit">Pesquisar</button>
                 </form>
                     ---------------------------------<br>  
-                {%for setor in setors%}
-                    Código: {{ setor.codigo }} &nbsp; <a href="{% url 'url_editar setor' setor.id %}">Editar</a> &nbsp;
-                    <a href="{% url 'url_excluir setor' setor.id %}">Excluir</a><br>
-                    Nome: {{ setor.nome }} <br>
+                {%for pagamento in pagamentos%}
+                    Código: {{ pagamento.codigo }} &nbsp; <a href="{% url 'url_editar_pagamento' pagamento.id %}">Editar</a> &nbsp;
+                    <a href="{% url 'url_excluir_pagamento' pagamento.id %}">Excluir</a><br>
+                    Método de Pagamento: {{ pagamento.nome }} <br>
                     -------------------------------<br>
                 {% endfor %}
             </div>                
@@ -175,5 +175,6 @@
 <script>
     window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
 </script>
+
 
 </html>

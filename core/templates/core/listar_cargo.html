@@ -120,7 +120,7 @@
                     {{ form.as_p}}
                     <input type="text" name="codigo"> &nbsp; <button type="submit">Pesquisar</button>
                 </form>
-                ---------------------------------<br>  
+                    ---------------------------------<br>  
                 {%for cargo in cargos%}
                     Código: {{ cargo.codigo }} &nbsp; <a href="{% url 'url_editar_cargo' cargo.id %}">Editar</a> &nbsp;
                     <a href="{% url 'url_excluir_cargo' cargo.id %}">Excluir</a><br>
