@@ -94,10 +94,7 @@
                 <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
                     {% csrf_token %}
                     {{ form.as_p}}
-                    <input type="text" name="nome"> &nbsp; <button type="submit">Pesquisar</button>
                 </form>
-                ---------------------------------<br>  
-                {%for produto in produtos%}
                     Código: {{ produto.codigo }} 
                     Título: {{ produto.titulo }} <br>
                     Valor: {{ produto.valor }} <br>
@@ -107,8 +104,6 @@
                     Quantidade Disponível: {{ produto.quantidade_disponivel }} <br>
                     Fabricante: {{ produto.id_fabricante }} <br>
                     <img src="{{ produto.foto.url }}" width="100"> <br>
-                    -------------------------------<br>
-                {% endfor %}
             </div>                
         </div>
     </div>
