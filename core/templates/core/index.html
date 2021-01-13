@@ -238,7 +238,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="text-dark nav-link " id="nav-pills-02" data-toggle="pill" href="#nav-item-02">Aviões</a>
+                            <a class="text-dark nav-link " id="nav-pills-02" data-toggle="pill" href="#nav-item-02">Bandai Nanco</a>
                         </li>
                     </ul>
 
@@ -252,17 +252,19 @@
                             <div class="my-5">
                                 <div class="row">
                                     <div class="col-12 text-center my-5">
-                                        <h1 class="dysplay-2">Miniaturas de Automoveis</h1>                                    
+                                        
+
+                                        <h1 class="dysplay-2"> Miniaturas da IronStudios </h1> 
+                                    
                                         <div class="row mb-5 my-5 ">
                                         
                                             <!--card do produto 1 -->
                                             
-                                                {% for produto in produtos %}
-                                                    {% if produto.id_fabricante.nome == 'Iron Studios' %}
-                                                        <div class="col-sm-3 my-5">
-                                                            <div class="card aument-transi">
-                                                                
-                                                                <a class="list-inline-item" href="{% url 'url_exibir_produto' produto.id %}">
+                                                  
+                                                    {% for produto in produtos %}
+                                                        {% ifequal produto.id_fabricante.nome "IronStudios" %}
+                                                            <div class="col-sm-3 my-5">
+                                                                <div class="card aument-transi">
                                                                     
                                                                             <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>                                                            
                                                                     
@@ -281,10 +283,8 @@
                                                                     </h4>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </form>
+                                                        {% endifequal %}
+                                                    {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -299,63 +299,42 @@
                             <div class="my-5">
                                 <div class="row">
                                     <div class="col-12 text-center my-5">
-                                        <h1 class="dysplay-2">Miniaturas de Aviões</h1>                                    
+                                
+                                            <h1 class="dysplay-2"> Miniaturas da Bandai nanco</h1> 
+                                 
                                         <div class="row mb-5 my-5 ">                                            
 
                                             <!--card do produto 1 -->
 
-                                            <div class="col-sm-3 my-5">
-                                                <div class="card aument-transi">
-                                                    <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png"></a>
-                                                    
-                                                    <div class="card-body">                        
-                                                        <h3 class="card-title text-center">Preço</h3>
-                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
-
+                                            {% for produto in produtos %}
+                                                {% ifequal produto.id_fabricante.nome "bandai" %}
+                                                    <div class="col-sm-3 my-5">
+                                                        <div class="card aument-transi">
+                                                            
+                                                            <a class="list-inline-item" href="{% url 'url_exibir_produto' produto.id %}">
+                                                                
+                                                                        <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>                                                            
+                                                                
+                                                            </a>
+                                                            
+                                                            <div class="card-body">                        
+                                                                <h5 class="card-title text-center " style="width: 200px;height:50px ;">
+                                                                        {{ produto.titulo }}
+                                                                </h5>
+                                                                <h5 class="card-title text-center text-secondary " style="width: 200px;height:40px ;">
+                                                                Escala:  {{ produto.escala }}
+                                                            </h5>
+                                                                    
+                                                                <h4 class="card-text text-center text-success" style="width: 200px;height:16px ;">
+                                                                        R$ {{ produto.valor }} <h6 class="text-danger">Em até 12x sem juros</h6>
+                                                                </h4>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                {% endifequal %}
+                                            {% endfor %}
                                             </div>
-                                            
-                                            <!--card do produto 2 -->
-
-                                            <div class="col-sm-3 my-5">
-                                                <div class="card aument-transi">
-                                                    <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png"></a>
-                                                    
-                                                    <div class="card-body">                        
-                                                        <h3 class="card-title text-center">Preço</h3>
-                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!--card do produto 3 -->
-
-                                            <div class="col-sm-3 my-5">
-                                                <div class="card aument-transi">
-                                                   <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png"></a> 
-                                                    
-                                                    <div class="card-body">                        
-                                                        <h3 class="card-title text-center">Preço</h3>
-                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!--card do produto 4 -->
-
-                                            <div class="col-sm-3 my-5">
-                                                <div class="card aument-transi">
-                                                    <a class="list-inline-item" href="#"><img class="card-img" src="https://ik.imagekit.io/VictorParavatti/3_ahSeM2FPjU.png"></a>
-                                                    <div class="card-body">                        
-                                                        <h3 class="card-title text-center">Preço</h3>
-                                                        <h4 class="card-text text-center text-success">R$ 127,50</h4>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
+                                        </form>
                                         </div>
                                     </div>
                                 </div>
@@ -364,7 +343,7 @@
                     </div>
                 </div>
             </div>                                                
-        </div>                                                      <!--Miniaturas de Automoveis -->
+        </div>                                                      
 
                                                                             <!--Rodapé-->
     
