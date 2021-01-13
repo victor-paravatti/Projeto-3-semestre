@@ -142,17 +142,17 @@ def cadastrar_cargo(request):
 def listar_cargo(request):
     if request.POST:
         if request.POST['codigo']:
-            cargos = cargo.objects.filter(codigo=request.POST['codigo'])
+            cargos = Cargo.objects.filter(codigo=request.POST['codigo'])
         else:
-            cargos = cargo.objects.all()
+            cargos = Cargo.objects.all()
     else:
-        cargos = cargo.objects.all()
+        cargos = Cargo.objects.all()
     contexto = {'cargos': cargos}
     return render(request, "core/listar_cargo.html", contexto)
 
 
 def editar_cargo(request, id):
-    obj = cargo.objects.get(id=id)
+    obj = Cargo.objects.get(id=id)
     form = FormCargo(request.POST or None, request.FILES or None, instance=obj)
     contexto = {'form': form}
     if form.is_valid():
@@ -163,7 +163,7 @@ def editar_cargo(request, id):
 
 
 def excluir_cargo(request, id):
-    obj = cargo.objects.get(id=id)
+    obj = Cargo.objects.get(id=id)
     contexto = {'acao': obj.codigo, 'redirect': '/listar_cargo/'}
     if request.POST:
         obj.delete()
@@ -185,17 +185,17 @@ def cadastrar_setor(request):
 def listar_setor(request):
     if request.POST:
         if request.POST['codigo']:
-            setors = setor.objects.filter(codigo=request.POST['codigo'])
+            setors = Setor.objects.filter(codigo=request.POST['codigo'])
         else:
-            setors = setor.objects.all()
+            setors = Setor.objects.all()
     else:
-        setors = setor.objects.all()
+        setors = Setor.objects.all()
     contexto = {'setors': setors}
     return render(request, "core/listar_setor.html", contexto)
 
 
 def editar_setor(request, id):
-    obj = setor.objects.get(id=id)
+    obj = Setor.objects.get(id=id)
     form = FormSetor(request.POST or None, request.FILES or None, instance=obj)
     contexto = {'form': form}
     if form.is_valid():
@@ -206,7 +206,7 @@ def editar_setor(request, id):
 
 
 def excluir_setor(request, id):
-    obj = setor.objects.get(id=id)
+    obj = Setor.objects.get(id=id)
     contexto = {'acao': obj.codigo, 'redirect': '/listar_setor/'}
     if request.POST:
         obj.delete()
