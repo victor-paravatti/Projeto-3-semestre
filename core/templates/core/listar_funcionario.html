@@ -85,24 +85,28 @@
             </div>
         </div>
     </nav>
-    <!formulario do atualizar produto!>
+    <!formulario do listar funcionario!>
 
     <div class='jumbotron'>
         <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5"> Listar Produtos </h2>
+            <h2 class="mt-5"> Listar Funcionários </h2>
             <div class="ml-5">
                 <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
                     {% csrf_token %}
                     {{ form.as_p}}
+                    <input type="text" name="codigo"> &nbsp; <button type="submit">Pesquisar</button>
                 </form>
-                {%for produto in produtos%}
-                    Título: {{ produto.titulo }} <br>
-                    Valor: {{ produto.valor }} <br>
-                    Escala: {{ produto.escala }} <br>
-                    Lote: {{ produto.lote }} <br>
-                    Descrição: {{ produto.descricao }} <br>
-                    Fabricante: {{ produto.id_fabricante }} <br>
-                    <img src="{{ produto.foto.url }}" width="500"> <br>
+                ---------------------------------<br>  
+                {%for funcionario in funcionarios%}
+                    Matrícula: {{ funcionario.codigo }} &nbsp; <a href="{% url 'url_editar_funcionario' funcionario.id %}">Editar</a> &nbsp;
+                    <a href="{% url 'url_excluir_funcionario' funcionario.id %}">Excluir</a><br>
+                    Nome: {{ funcionario.nome }} <br>
+                    E-mail: {{ funcionario.e_mail }} <br>
+                    Telefone: {{ funcionario.telefone }} <br>
+                    Senha: {{ funcionario.senha }} <br>
+                    Cargo: {{ funcionario.id_cargo }} <br>
+                    Setor: {{ funcionario.id_setor }} <br>
+                -------------------------------<br>
                 {% endfor %}
             </div>                
         </div>

@@ -85,25 +85,19 @@
             </div>
         </div>
     </nav>
-    <!formulario do atualizar produto!>
+    <!formulario do cadastrar funcionario!>
 
     <div class='jumbotron'>
         <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5"> Listar Produtos </h2>
+            <h2 class="mt-5">{{ acao }}</h2>
             <div class="ml-5">
                 <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
                     {% csrf_token %}
                     {{ form.as_p}}
+                    <button class="bg-success" type="submit">Salvar</button> &nbsp;
+                    <button class="bg-danger" type="button" onclick="location.href='/'">Cancelar</button>
+                
                 </form>
-                {%for produto in produtos%}
-                    Título: {{ produto.titulo }} <br>
-                    Valor: {{ produto.valor }} <br>
-                    Escala: {{ produto.escala }} <br>
-                    Lote: {{ produto.lote }} <br>
-                    Descrição: {{ produto.descricao }} <br>
-                    Fabricante: {{ produto.id_fabricante }} <br>
-                    <img src="{{ produto.foto.url }}" width="500"> <br>
-                {% endfor %}
             </div>                
         </div>
     </div>
