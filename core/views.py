@@ -3,8 +3,8 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from core.models import Produto, Funcionario, Cliente
-from core.forms import FormCliente, FormProduto, FormFuncionario
+from core.models import Produto, Funcionario, Cargo, Setor, Cliente
+from core.forms import FormCliente, FormProduto, FormFuncionario, FormCargo, FormSetor
 from django.http import JsonResponse
 import json
 import datetime
