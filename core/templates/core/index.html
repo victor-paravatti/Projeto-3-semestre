@@ -1,7 +1,5 @@
 {% load static %}
 
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,15 +25,18 @@
                 
                                                                 <!--Barra de pesquisa no menu-->
 
-                <form class="form-inline ml-auto col-form-label-sm">
-                    <input class="form-control ml-5" type="search" placeholder="Buscar">
+                <form method="post" enctype="multipart/form-data" class="form-inline ml-auto col-form-label-sm">
+
+                    {% csrf_token %}
+
+                    <input type="text"  name="titulo"class="form-control ml-5" type="search" placeholder="Buscar">
                         <button class="btn btn-outline-darkml-3 btn-outline-dark ml-3 my-2 my-sm-0 justify-content-lg-between" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                 <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                             </svg>
                         </button>                    
-                </form>
+                
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -216,6 +217,7 @@
     </div>   
     
     
+    
 
 
                                                                     <!--Conteiner das miniaturas dos produtos -->  
@@ -223,15 +225,16 @@
     <div class="jumbotron jumbotron-fluid">
 
         <div class="container">
-                                                                     <!--Controle da Exibiçao dos produtos-->
+            <h2 class="text-center" >Categorias</h2>                                                         <!--Controle da Exibiçao dos produtos-->
             <div class="row">
+                
 
-                <div class="col-12">
+                <div class="col-12 ">
 
                     <ul class="nav nav-pills justify-content-center" id="pills-nav" role="tablist">
-
+                        
                         <li class="nav-item">
-                            <a class="text-dark nav-link active" id="nav-pills-01" data-toggle="pill" href="#nav-item-01">Automoveis</a>
+                            <a class="text-dark nav-link active" id="nav-pills-01" data-toggle="pill" href="#nav-item-01">Iron studios</a>
                         </li>
 
                         <li class="nav-item">
@@ -251,35 +254,38 @@
                                     <div class="col-12 text-center my-5">
                                         <h1 class="dysplay-2">Miniaturas de Automoveis</h1>                                    
                                         <div class="row mb-5 my-5 ">
-                                            
-
+                                        
                                             <!--card do produto 1 -->
-                                            {% for produto in produtos %}
-                                                <div class="col-sm-3 my-5">
-                                                    <div class="card aument-transi">
-                                                        
-                                                        <a class="list-inline-item" href="{% url 'url_exibir_produto' produto.id %}">
-                                                            
-                                                                    <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>                                                            
-                                                            
-                                                        </a>
-                                                        
-                                                        <div class="card-body">                        
-                                                            <h5 class="card-title text-center " style="width: 200px;height:50px ;">
-                                                                    {{ produto.titulo }}
-                                                            </h5>
-                                                            <h5 class="card-title text-center text-secondary " style="width: 200px;height:40px ;">
-                                                              Escala:  {{ produto.escala }}
-                                                        </h5>
-                                                                
-                                                            <h4 class="card-text text-center text-success" style="width: 200px;height:16px ;">
-                                                                    R$ {{ produto.valor }} <h6 class="text-danger">Em até 12x sem juros</h6>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            {% endfor %}
-
+                                            
+                                                  
+                                                    {% for produto in produtos %}
+                                                        {% ifequal produto.id_fabricante "IronStudios" %}
+                                                            <div class="col-sm-3 my-5">
+                                                                <div class="card aument-transi">
+                                                                    
+                                                                    <a class="list-inline-item" href="{% url 'url_exibir_produto' produto.id %}">
+                                                                        
+                                                                                <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>                                                            
+                                                                        
+                                                                    </a>
+                                                                    
+                                                                    <div class="card-body">                        
+                                                                        <h5 class="card-title text-center " style="width: 200px;height:50px ;">
+                                                                                {{ produto.titulo }}
+                                                                        </h5>
+                                                                        <h5 class="card-title text-center text-secondary " style="width: 200px;height:40px ;">
+                                                                        Escala:  {{ produto.escala }}
+                                                                    </h5>
+                                                                            
+                                                                        <h4 class="card-text text-center text-success" style="width: 200px;height:16px ;">
+                                                                                R$ {{ produto.valor }} <h6 class="text-danger">Em até 12x sem juros</h6>
+                                                                        </h4>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {% endifequal %}
+                                                    {% endfor %}
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

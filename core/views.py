@@ -7,14 +7,18 @@ from core.models import Cliente, Produto, Funcionario, Cargo, Setor, Fabricante,
     Status, TipoSolicitacao 
 from core.forms import FormCliente, FormProduto, FormFuncionario, FormCargo, FormSetor, \
     FormFabricante, FormStatus, FormTipoSolicitacao, FormPagamento
-from django.http import JsonResponse
-import json
-import datetime
+
 
 
 def home(request):
-    produto = Produto.objects.all()
-    contexto = {'produtos': produto}
+    if request.POST:
+        if request.POST['titulo']:
+            produtos = Produto.objects.filter(titulo=request.POST['titulo'])
+        else:
+            produtos = Produto.objects.all()
+    else:
+        produtos = Produto.objects.all()
+    contexto = {'produtos': produtos}
     return render(request, 'core/index.html', contexto)
 
 

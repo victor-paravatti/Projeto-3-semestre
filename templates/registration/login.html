@@ -95,6 +95,29 @@
                 </div>
 
             </div>
+    <?php
+        if(isset($_POST['act']) && $_POST['act'] == "logar"){
+        
+            $senha            = $_POST['senha'];
+            $lem_senha    = $_POST['lem_senha'];
+            
+            
+            if(isset($_COOKIE['senha'])){
+            
+                if(!isset($lem_senha)){
+                    unset($_COOKIE['senha']);
+                }
+            
+            }else{
+            
+                if(isset($lem_senha)){
+                    setcookie("senha", $senha);
+                }
+            
+            }
+        
+        }
+    ?>
 
         </div>        
     </div>

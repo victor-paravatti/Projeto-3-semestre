@@ -25,15 +25,16 @@
                 
                                                                 <!--Barra de pesquisa no menu-->
 
-                <form class="form-inline ml-auto col-form-label-sm">
-                    <input class="form-control ml-5" type="search" placeholder="Buscar">
+                <form method="post" enctype="multipart/form-data" class="form-inline ml-auto col-form-label-sm">
+                    
+                    <input name="codigo" class="form-control ml-5" type="search" placeholder="Buscar">
                         <button class="btn btn-outline-darkml-3 btn-outline-dark ml-3 my-2 my-sm-0 justify-content-lg-between" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                 <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                             </svg>
                         </button>                    
-                </form>
+                
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -127,10 +128,10 @@
         <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
             <h2 class="mt-5"> Listar Produtos </h2>
             <div class="ml-5">
-                <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
+                
                     {% csrf_token %}
                     {{ form.as_p}}
-                    <input type="text" name="codigo"> &nbsp; <button type="submit">Pesquisar</button>
+                   
                 </form>
                     ---------------------------------<br>  
                 {%for produto in produtos%}
