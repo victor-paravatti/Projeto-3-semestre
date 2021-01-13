@@ -95,15 +95,15 @@
                     {% csrf_token %}
                     {{ form.as_p}}
                 </form>
-                    Código: {{ produto.codigo }} 
+                {%for produto in produtos%}
                     Título: {{ produto.titulo }} <br>
                     Valor: {{ produto.valor }} <br>
                     Escala: {{ produto.escala }} <br>
                     Lote: {{ produto.lote }} <br>
                     Descrição: {{ produto.descricao }} <br>
-                    Quantidade Disponível: {{ produto.quantidade_disponivel }} <br>
                     Fabricante: {{ produto.id_fabricante }} <br>
                     <img src="{{ produto.foto.url }}" width="100"> <br>
+                {% endfor %}
             </div>                
         </div>
     </div>

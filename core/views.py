@@ -79,6 +79,8 @@ def excluir_produto(request, id):
     else:
         return render(request, 'core/confirma_exclusao.html', contexto)
 
+
 def exibir_produto(request, id):
-	produtos = Produto.objects.all()
-	return render(request, "core/exibir_produto.html", produtos)
+	produtos = Produto.objects.filter(id=id)
+    contexto = {'produtos': produtos}
+    return render(request, "core/exibir_produto.html", contexto)
