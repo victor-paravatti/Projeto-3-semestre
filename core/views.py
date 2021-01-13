@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
@@ -390,3 +391,25 @@ def excluir_pagamento(request, id):
         return redirect('url_listar_pagamento')
     else:
         return render(request, 'core/confirma_exclusao.html', contexto)
+
+
+class SearchProductView(ListView):
+    template_name = "search/view.html"
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        query = self.request.GET.get('q')
+        context['query'] = query
+        #SearchQuery.objects.create(query=query)
+        return context
+
+    def get_queryset(self, *args, **kargs):
+        request = self.request
+        print('Solicitação', request)
+        result = request.GET
+        print('Resultado: ', result)
+        query = result.get('q',  None) # method['q']
+        print('Consulta', query)
+        if query is not None:
+            return Produto.objects.search(query)
+        return Produto.objects.featured()
