@@ -7,7 +7,7 @@ from core.views import Cadastrar, home, carinho, cadastrar_cliente, cadastrar_pr
     cadastrar_fabricante, listar_fabricante, editar_fabricante, excluir_fabricante, cadastrar_status, \
     listar_status, editar_status, excluir_status, cadastrar_tipo_solicitacao, listar_tipo_solicitacao, \
     editar_tipo_solicitacao, excluir_tipo_solicitacao, cadastrar_pagamento, listar_pagamento, \
-    editar_pagamento, excluir_produto
+    editar_pagamento, excluir_pagamento
 from django.conf.urls.static import static
 from django.conf import settings
 
