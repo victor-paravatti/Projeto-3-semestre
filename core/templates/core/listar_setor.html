@@ -84,14 +84,14 @@
                             <a class="text-white bg-dark dropdown-item" href="/listar_cargo"> Listar Cargos </a>
                             <a class="text-white bg-dark dropdown-item" href="/listar_fabricante"> Listar Fabricantes </a>
                             <a class="text-white bg-dark dropdown-item" href="/listar_funcionario"> Listar Funcionarios </a>
-                            <a class="text-white bg-dark dropdown-item" href="listar_setor"> Listar Setores </a>
-                            <a class="text-white bg-dark dropdown-item" href="listar_status"> Listar Status </a>
-                            <a class="text-white bg-dark dropdown-item" href="listar_status"> Listar Tipos de Solicitações </a>
+                            <a class="text-white bg-dark dropdown-item" href="/listar_setor"> Listar Setores </a>
+                            <a class="text-white bg-dark dropdown-item" href="/listar_status"> Listar Status </a>
+                            <a class="text-white bg-dark dropdown-item" href="/listar_tipo_solicitacao"> Listar Tipos de Solicitações </a>
                             <a class="text-white bg-dark dropdown-item" href="/cadastrar_produto"> Cadastrar Produto </a>
                             <a class="text-white bg-dark dropdown-item" href="/cadastrar_cargo"> Cadastrar Cargo </a>
                             <a class="text-white bg-dark dropdown-item" href="/cadastrar_fabricante"> Cadastrar Fabricante</a>
                             <a class="text-white bg-dark dropdown-item" href="/cadastrar_funcionario"> Cadatrar Funcionario</a>
-                            <a class="text-white bg-dark dropdown-item" href="/cadastar_setor"> Cadastrar Setor</a>
+                            <a class="text-white bg-dark dropdown-item" href="/cadastrar_setor"> Cadastrar Setor</a>
                             <a class="text-white bg-dark dropdown-item" href="/cadastrar_status"> Cadastrar Status</a>
                             <a class="text-white bg-dark dropdown-item" href="/cadastrar_tipo_solicitacao"> Cadastrar Tipo de Solicitação</a>
      
@@ -134,8 +134,8 @@
                 </form>
                     ---------------------------------<br>  
                 {%for setor in setors%}
-                    Código: {{ setor.codigo }} &nbsp; <a href="{% url 'url_editar setor' setor.id %}">Editar</a> &nbsp;
-                    <a href="{% url 'url_excluir setor' setor.id %}">Excluir</a><br>
+                    Código: {{ setor.codigo }} &nbsp; <a href="{% url 'url_editar_setor' setor.id %}">Editar</a> &nbsp;
+                    <a href="{% url 'url_excluir_setor' setor.id %}">Excluir</a><br>
                     Nome: {{ setor.nome }} <br>
                     -------------------------------<br>
                 {% endfor %}
