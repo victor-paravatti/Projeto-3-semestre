@@ -3,8 +3,10 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from core.models import Produto, Funcionario, Cargo, Setor, Cliente
-from core.forms import FormCliente, FormProduto, FormFuncionario, FormCargo, FormSetor
+from core.models import Cliente, Produto, Funcionario, Cargo, Setor, Fabricante, Pagamento, \
+    Status, TipoSolicitacao 
+from core.forms import FormCliente, FormProduto, FormFuncionario, FormCargo, FormSetor, \
+    FormFabricante, FormStatus, FormTipoSolicitacao, FormPagamento
 from django.http import JsonResponse
 import json
 import datetime
@@ -211,5 +213,177 @@ def excluir_setor(request, id):
     if request.POST:
         obj.delete()
         return redirect('url_listar_setor')
+    else:
+        return render(request, 'core/confirma_exclusao.html', contexto)
+
+
+def cadastrar_fabricante(request):
+    form = FormFabricante(request.POST or None, request.FILES or None)
+    contexto = {'form': form, 'acao': 'Cadastar Fabricante'}
+    if form.is_valid():
+        form.save()
+        return redirect('url_listar_fabricante')
+    else:
+        return render(request, "core/cadastrar_fabricante.html", contexto)
+
+
+def listar_fabricante(request):
+    if request.POST:
+        if request.POST['codigo']:
+            fabricantes = Fabricante.objects.filter(codigo=request.POST['codigo'])
+        else:
+            fabricantes = Fabricante.objects.all()
+    else:
+        fabricantes = Fabricante.objects.all()
+    contexto = {'fabricantes': fabricantes}
+    return render(request, "core/listar_fabricante.html", contexto)
+
+
+def editar_fabricante(request, id):
+    obj = Fabricante.objects.get(id=id)
+    form = FormFabricante(request.POST or None, request.FILES or None, instance=obj)
+    contexto = {'form': form}
+    if form.is_valid():
+        form.save()
+        return redirect('url_listar_fabricante')
+    else:
+        return render(request, 'core/cadastrar_fabricante.html', contexto)
+
+
+def excluir_fabricante(request, id):
+    obj = Fabricante.objects.get(id=id)
+    contexto = {'acao': obj.codigo, 'redirect': '/listar_fabricante/'}
+    if request.POST:
+        obj.delete()
+        return redirect('url_listar_fabricante')
+    else:
+        return render(request, 'core/confirma_exclusao.html', contexto)
+
+
+def cadastrar_status(request):
+    form = FormStatus(request.POST or None, request.FILES or None)
+    contexto = {'form': form, 'acao': 'Cadastar Status'}
+    if form.is_valid():
+        form.save()
+        return redirect('url_listar_status')
+    else:
+        return render(request, "core/cadastrar_status.html", contexto)
+
+
+def listar_status(request):
+    if request.POST:
+        if request.POST['codigo']:
+            statuss = Status.objects.filter(codigo=request.POST['codigo'])
+        else:
+            statuss = Status.objects.all()
+    else:
+        statuss = Status.objects.all()
+    contexto = {'statuss': statuss}
+    return render(request, "core/listar_status.html", contexto)
+
+
+def editar_status(request, id):
+    obj = Status.objects.get(id=id)
+    form = FormStatus(request.POST or None, request.FILES or None, instance=obj)
+    contexto = {'form': form}
+    if form.is_valid():
+        form.save()
+        return redirect('url_listar_status')
+    else:
+        return render(request, 'core/cadastrar_status.html', contexto)
+
+
+def excluir_status(request, id):
+    obj = Status.objects.get(id=id)
+    contexto = {'acao': obj.codigo, 'redirect': '/listar_status/'}
+    if request.POST:
+        obj.delete()
+        return redirect('url_listar_status')
+    else:
+        return render(request, 'core/confirma_exclusao.html', contexto)
+
+
+def cadastrar_tipo_solicitacao(request):
+    form = FormTipoSolicitacao(request.POST or None, request.FILES or None)
+    contexto = {'form': form, 'acao': 'Cadastar Tipo de Solicitação'}
+    if form.is_valid():
+        form.save()
+        return redirect('url_listar_tipo_solicitacao')
+    else:
+        return render(request, "core/cadastrar_tipo_solicitacao.html", contexto)
+
+
+def listar_tipo_solicitacao(request):
+    if request.POST:
+        if request.POST['codigo']:
+            tipo_solicitacoes = TipoSolicitacao.objects.filter(codigo=request.POST['codigo'])
+        else:
+            tipo_solicitacoes = TipoSolicitacao.objects.all()
+    else:
+        tipo_solicitacoes = TipoSolicitacao.objects.all()
+    contexto = {'tipo_solicitacoes': tipo_solicitacoes}
+    return render(request, "core/listar_tipo_solicitacao.html", contexto)
+
+
+def editar_tipo_solicitacao(request, id):
+    obj = TipoSolicitacao.objects.get(id=id)
+    form = FormTipoSolicitacao(request.POST or None, request.FILES or None, instance=obj)
+    contexto = {'form': form}
+    if form.is_valid():
+        form.save()
+        return redirect('url_listar_tipo_solicitacao')
+    else:
+        return render(request, 'core/cadastrar_tipo_solicitacao.html', contexto)
+
+
+def excluir_tipo_solicitacao(request, id):
+    obj = TipoSolicitacao.objects.get(id=id)
+    contexto = {'acao': obj.codigo, 'redirect': '/listar_tipo_solicitacao/'}
+    if request.POST:
+        obj.delete()
+        return redirect('url_listar_tipo_solicitacao')
+    else:
+        return render(request, 'core/confirma_exclusao.html', contexto)
+
+
+def cadastrar_pagamento(request):
+    form = FormPagamento(request.POST or None, request.FILES or None)
+    contexto = {'form': form, 'acao': 'Cadastar Pagamento'}
+    if form.is_valid():
+        form.save()
+        return redirect('url_listar_pagamento')
+    else:
+        return render(request, "core/cadastrar_pagamento.html", contexto)
+
+
+def listar_pagamento(request):
+    if request.POST:
+        if request.POST['codigo']:
+            pagamentos = Pagamento.objects.filter(codigo=request.POST['codigo'])
+        else:
+            pagamentos = Pagamento.objects.all()
+    else:
+        pagamentos = Pagamento.objects.all()
+    contexto = {'pagamentos': pagamentos}
+    return render(request, "core/listar_pagamento.html", contexto)
+
+
+def editar_pagamento(request, id):
+    obj = Pagamento.objects.get(id=id)
+    form = FormPagamento(request.POST or None, request.FILES or None, instance=obj)
+    contexto = {'form': form}
+    if form.is_valid():
+        form.save()
+        return redirect('url_listar_pagamento')
+    else:
+        return render(request, 'core/cadastrar_pagamento.html', contexto)
+
+
+def excluir_pagamento(request, id):
+    obj = Pagamento.objects.get(id=id)
+    contexto = {'acao': obj.codigo, 'redirect': '/listar_pagamento/'}
+    if request.POST:
+        obj.delete()
+        return redirect('url_listar_pagamento')
     else:
         return render(request, 'core/confirma_exclusao.html', contexto)

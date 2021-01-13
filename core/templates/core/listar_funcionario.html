@@ -120,7 +120,7 @@
                     {{ form.as_p}}
                     <input type="text" name="codigo"> &nbsp; <button type="submit">Pesquisar</button>
                 </form>
-                ---------------------------------<br>  
+                    ---------------------------------<br>  
                 {%for funcionario in funcionarios%}
                     Matrícula: {{ funcionario.codigo }} &nbsp; <a href="{% url 'url_editar_funcionario' funcionario.id %}">Editar</a> &nbsp;
                     <a href="{% url 'url_excluir_funcionario' funcionario.id %}">Excluir</a><br>
@@ -130,7 +130,7 @@
                     Senha: {{ funcionario.senha }} <br>
                     Cargo: {{ funcionario.id_cargo }} <br>
                     Setor: {{ funcionario.id_setor }} <br>
-                -------------------------------<br>
+                    -------------------------------<br>
                 {% endfor %}
             </div>                
         </div>

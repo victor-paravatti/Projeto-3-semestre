@@ -120,7 +120,7 @@
                     {{ form.as_p}}
                     <input type="text" name="codigo"> &nbsp; <button type="submit">Pesquisar</button>
                 </form>
-                ---------------------------------<br>  
+                    ---------------------------------<br>  
                 {%for produto in produtos%}
                     Código: {{ produto.codigo }} &nbsp; <a href="{% url 'url_editar_produto' produto.id %}">Editar</a> &nbsp;
                     <a href="{% url 'url_excluir_produto' produto.id %}">Excluir</a><br>
