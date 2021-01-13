@@ -109,24 +109,19 @@
             </div>
         </div>
     </nav>
-    <!formulario do listar setor!>
+    <!formulario do cadastrar tipo solicitacao!>
 
     <div class='jumbotron'>
         <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5"> Listar Setores </h2>
+            <h2 class="mt-5">{{ acao }}</h2>
             <div class="ml-5">
                 <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
                     {% csrf_token %}
                     {{ form.as_p}}
-                    <input type="text" name="codigo"> &nbsp; <button type="submit">Pesquisar</button>
+                    <button class="bg-success" type="submit">Salvar</button> &nbsp;
+                    <button class="bg-danger" type="button" onclick="location.href='/'">Cancelar</button>
+                
                 </form>
-                    ---------------------------------<br>  
-                {%for setor in setors%}
-                    Código: {{ setor.codigo }} &nbsp; <a href="{% url 'url_editar setor' setor.id %}">Editar</a> &nbsp;
-                    <a href="{% url 'url_excluir setor' setor.id %}">Excluir</a><br>
-                    Nome: {{ setor.nome }} <br>
-                    -------------------------------<br>
-                {% endfor %}
             </div>                
         </div>
     </div>
@@ -175,5 +170,6 @@
 <script>
     window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
 </script>
+
 
 </html>
