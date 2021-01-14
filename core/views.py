@@ -390,3 +390,5 @@ def excluir_pagamento(request, id):
         return redirect('url_listar_pagamento')
     else:
         return render(request, 'core/confirma_exclusao.html', contexto)
+
+
