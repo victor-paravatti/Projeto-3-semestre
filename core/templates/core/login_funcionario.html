@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TITULO</title>
+</head>
+<body>
+    <h1>FAÇA SEU LOGIN</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>E-mail</label>
+        <input type="text" name="email"><br><br>
+
+        <label>Senha</label>
+        <input type="text" name="senha"><br><br>
+
+        <button type="submit">Logar</button><br><br>
+
+        {% if messages %}
+            {% for m in messages %}
+                <div class="alert alert-warning" role="alert">
+                  {{ m }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </form>
+
+</body>
+</html>

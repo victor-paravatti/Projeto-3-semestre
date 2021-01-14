@@ -1,32 +1,27 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Minimals</title>
-    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/compile/bootstrap.css'%}"> 
-    <link rel="stylesheet" href="{% static 'node_modules/css/perso.css' %}">     
+    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/compile/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'node_modules/css/perso.css' %}">
 </head>
 
-
-<body>                                                                    <!-- Menu nav bar -->
-
+<body>
+    <!-- Menu nav bar -->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-info">
         <div class="container">
-
             <a class="navbar-brand h1 mb-0" href="/" >Minimals</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
-                <span class="navbar-toggler-icon"></span>               
+                <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSite">
-                
-                                                                <!--Barra de pesquisa no menu-->
 
+                <!--Barra de pesquisa no menu-->
                 <form method="post" enctype="multipart/form-data" class="form-inline ml-auto col-form-label-sm">
-
                     {% csrf_token %}
 
                     <input type="text"  name="titulo"class="form-control ml-5" type="search" placeholder="Buscar">
@@ -35,104 +30,105 @@
                                 <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
                                 <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
                             </svg>
-                        </button>                    
-                
+                        </button>
 
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark " href="carrinho/">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-                            </svg>
-                            <span class="link-text">Carrinho</span>
-                        </a>
-                    </li>
-                                        <!--Logica do login-->
-                    <li class="nav-item">
-                        {% if user.get_username %}
-                            <a class="nav-link text-dark" href="/account/logout">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class=" bi bi-box-arrow-left" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
-                                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
-                                </svg>            
-                                <span class="link-text text-white">{{ user.get_username }}</span>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark " href="carrinho/">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                </svg>
+                                <span class="link-text">Carrinho</span>
                             </a>
-                        {% else %}
-                            <a class="nav-link text-dark" href="/account/login">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM11.5 2H11V1h.5A1.5 1.5 0 0 1 13 2.5V15h-1V2.5a.5.5 0 0 0-.5-.5z"/>
-                                    <path fill-rule="evenodd" d="M10.828.122A.5.5 0 0 1 11 .5V15h-1V1.077l-6 .857V15H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117z"/>
-                                    <path d="M8 9c0 .552.224 1 .5 1s.5-.448.5-1-.224-1-.5-1-.5.448-.5 1z"/>
-                                </svg>                
-                                <span class="link-text">Login</span>
+                        </li>
+
+                        <!--Logica do login-->
+                        <li class="nav-item">
+                            {% if funcionario %}
+                                <a class="nav-link text-dark" href="logout">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class=" bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                                    </svg>
+                                    <span class="link-text text-white">{{ nome }}</span>
+                                </a>
+                            {% elif cliente %}
+                                <a class="nav-link text-dark" href="/logout">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class=" bi bi-box-arrow-left" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                                    </svg>
+                                    <span class="link-text text-white">{{ nome }}</span>
+                                </a>
+                            {% else %}
+                                <a class="nav-link text-dark" href="/login">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-open" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1 15.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM11.5 2H11V1h.5A1.5 1.5 0 0 1 13 2.5V15h-1V2.5a.5.5 0 0 0-.5-.5z"/>
+                                        <path fill-rule="evenodd" d="M10.828.122A.5.5 0 0 1 11 .5V15h-1V1.077l-6 .857V15H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117z"/>
+                                        <path d="M8 9c0 .552.224 1 .5 1s.5-.448.5-1-.224-1-.5-1-.5.448-.5 1z"/>
+                                    </svg>
+                                    <span class="link-text">Login</span>
+                                </a>
+                            {% endif %}
+                        </li>
+                    </ul>
+
+                    <!--Opção das configurações-->
+                    {% if funcionario %}
+                    <ul class="navbar-nav ml">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                                </svg>
+                                Configurações
                             </a>
-                        {% endif %}
-                    </li>
-                </ul>
-                 
-                                                         <!--Opção das configurações-->
-                {% if user.get_username %}
-                <ul class="navbar-nav ml">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-dark dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-                                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
-                                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
-                            </svg>
-                            Configurações
-                        </a>
 
-                        <div class="dropdown-menu bg-dark">
-                            <a class="text-white bg-dark dropdown-item" href="/listar_produto"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Listar produto </a>
-                            <a class="text-white bg-dark dropdown-item" href="/listar_cargo"> Listar Cargos </a>
-                            <a class="text-white bg-dark dropdown-item" href="/listar_fabricante"> Listar Fabricantes </a>
-                            <a class="text-white bg-dark dropdown-item" href="/listar_funcionario"> Listar Funcionarios </a>
-                            <a class="text-white bg-dark dropdown-item" href="/listar_setor"> Listar Setores </a>
-                            <a class="text-white bg-dark dropdown-item" href="/listar_status"> Listar Status </a>
-                            <a class="text-white bg-dark dropdown-item" href="/listar_tipo_solicitacao"> Listar Tipos de Solicitações </a>
-                            <a class="text-white bg-dark dropdown-item" href="/cadastrar_produto"> Cadastrar Produto </a>
-                            <a class="text-white bg-dark dropdown-item" href="/cadastrar_cargo"> Cadastrar Cargo </a>
-                            <a class="text-white bg-dark dropdown-item" href="/cadastrar_fabricante"> Cadastrar Fabricante</a>
-                            <a class="text-white bg-dark dropdown-item" href="/cadastrar_funcionario"> Cadatrar Funcionario</a>
-                            <a class="text-white bg-dark dropdown-item" href="/cadastrar_setor"> Cadastrar Setor</a>
-                            <a class="text-white bg-dark dropdown-item" href="/cadastrar_status"> Cadastrar Status</a>
-                            <a class="text-white bg-dark dropdown-item" href="/cadastrar_tipo_solicitacao"> Cadastrar Tipo de Solicitação</a>
-     
-                        </div>
-                    </li>
-                </ul>
-                {% else %}
+                            <div class="dropdown-menu bg-dark">
+                                <a class="text-white bg-dark dropdown-item" href="/listar_produto"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Listar produto </a>
+                                <a class="text-white bg-dark dropdown-item" href="/listar_cargo"> Listar Cargos </a>
+                                <a class="text-white bg-dark dropdown-item" href="/listar_fabricante"> Listar Fabricantes </a>
+                                <a class="text-white bg-dark dropdown-item" href="/listar_funcionario"> Listar Funcionarios </a>
+                                <a class="text-white bg-dark dropdown-item" href="/listar_setor"> Listar Setores </a>
+                                <a class="text-white bg-dark dropdown-item" href="/listar_status"> Listar Status </a>
+                                <a class="text-white bg-dark dropdown-item" href="/listar_tipo_solicitacao"> Listar Tipos de Solicitações </a>
+                                <a class="text-white bg-dark dropdown-item" href="/cadastrar_produto"> Cadastrar Produto </a>
+                                <a class="text-white bg-dark dropdown-item" href="/cadastrar_cargo"> Cadastrar Cargo </a>
+                                <a class="text-white bg-dark dropdown-item" href="/cadastrar_fabricante"> Cadastrar Fabricante</a>
+                                <a class="text-white bg-dark dropdown-item" href="/cadastrar_funcionario"> Cadatrar Funcionario</a>
+                                <a class="text-white bg-dark dropdown-item" href="/cadastrar_setor"> Cadastrar Setor</a>
+                                <a class="text-white bg-dark dropdown-item" href="/cadastrar_status"> Cadastrar Status</a>
+                                <a class="text-white bg-dark dropdown-item" href="/cadastrar_tipo_solicitacao"> Cadastrar Tipo de Solicitação</a>
+                            </div>
+                        </li>
+                    </ul>
+                    {% endif %}
 
-                {% endif %}
+                    <ul class="navbar-nav ml">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+                                </svg>
+                                Social
+                            </a>
 
-                <ul class="navbar-nav ml">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-dark dropdown-toggle" href="#" data-toggle="dropdown" id="navDrop">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1h7.956a.274.274 0 0 0 .014-.002l.008-.002c-.002-.264-.167-1.03-.76-1.72C13.688 10.629 12.718 10 11 10c-1.717 0-2.687.63-3.24 1.276-.593.69-.759 1.457-.76 1.72a1.05 1.05 0 0 0 .022.004zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10c-1.668.02-2.615.64-3.16 1.276C1.163 11.97 1 12.739 1 13h3c0-1.045.323-2.086.92-3zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-                            </svg>
-                            Social
-                        </a>
-
-                        <div class="dropdown-menu bg-dark">
-                            <a class="text-white bg-dark dropdown-item" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Facebook </a>
-                            <a class="text-white bg-dark dropdown-item" href="#"> Instagram </a>
-                            <a class="text-white bg-dark  dropdown-item" href="#"> Twiter </a>
-                        </div>
-                    </li>
-                </ul>                
+                            <div class="dropdown-menu bg-dark">
+                                <a class="text-white bg-dark dropdown-item" href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Facebook </a>
+                                <a class="text-white bg-dark dropdown-item" href="#"> Instagram </a>
+                                <a class="text-white bg-dark  dropdown-item" href="#"> Twiter </a>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
             </div>
         </div>
     </nav>
+    <!--  Final do Menu nav bar -->
 
-    
-                                                                <!--  Final do Menu nav bar -->
-
-
-                                                                <!-- Implementação do carrosel de imagens-->
-
+    <!-- Implementação do carrosel de imagens-->
     <div id="carouselSite" class="carousel slide" data-ride="carousel">
-      
 
         <ol class="carousel-indicators">
             <li data-target="carouselSite" data-slide-to="0" class="active"></li>
@@ -141,98 +137,75 @@
             <li data-target="carouselSite" data-slide-to="3"></li>
         </ol>
 
-
         <div class="carousel-inner ml-0 mt-5">
 
-           
-                                                                <!-- Imagem 1 Do Carrosel-->
+            <!-- Imagem 1 Do Carrosel-->
             <div class="carousel-item active">
-
                <img src="https://ik.imagekit.io/VictorParavatti/banner1_u-IN72zcW.png" class="img-fluid d-block">
 
                <div class="carousel-caption text-danger">
-                    <h1 class="display-4"></h1> <!-- insformaçês do carrosel-->
-                    <p class="lead display-4"></p> <!-- insformaçês do carrosel-->
+                   <h1 class="display-4"></h1> <!-- insformaçês do carrosel-->
+                   <p class="lead display-4"></p> <!-- insformaçês do carrosel-->
                </div>
-
            </div>
 
-                                                                <!-- Imagem 2 Do Carrosel-->
-
+           <!-- Imagem 2 Do Carrosel-->
            <div class="carousel-item">
+               <img src="https://ik.imagekit.io/VictorParavatti/BANNER_UFFhih_Y10.jpg" class="img-fluid d-block ">
 
-                <img src="https://ik.imagekit.io/VictorParavatti/BANNER_UFFhih_Y10.jpg" class="img-fluid d-block ">
-                
-                <div class="carousel-caption text-danger">
-                    <h1 class="dysplay-1"></h1>
-                    <p class="lead display-4"></p>
-                </div>
-
+               <div class="carousel-caption text-danger">
+                   <h1 class="dysplay-1"></h1>
+                   <p class="lead display-4"></p>
+               </div>
             </div>
 
-                                                                <!-- Imagem 3 Do Carrosel-->
-
+            <!-- Imagem 3 Do Carrosel-->
             <div class="carousel-item">
-
                 <img src="https://ik.imagekit.io/VictorParavatti/banner3_a-Hkl6eYi.png" class="img-fluid d-block">
-                
+
                 <div class="carousel-caption text-danger">
                     <h1 class="dysplay-1"></h1>
                     <p class="lead display-4"></p>
                 </div>
-
             </div>
 
-                                                                 <!-- Imagem 4 Do Carrosel-->
-
+            <!-- Imagem 4 Do Carrosel-->
             <div class="carousel-item">
-
                 <img src="https://ik.imagekit.io/VictorParavatti/2_017mPOIiW.png" class="img-fluid d-block">
-                
+
                 <div class="carousel-caption text-danger">
                     <h1 class="dysplay-1"></h1>
                     <p class="lead display-4"></p>
                 </div>
-
             </div>
-                                                                 <!-- Fim das Imagems Do Carrosel-->
         </div>
-       
-                                                                    <!-- Controles do Do Carrosel-->
+        <!-- Fim das Imagems Do Carrosel-->
 
+        <!-- Controles do Do Carrosel-->
         <a class="carousel-control-prev " href="#carouselSite" role="button" data-slide="prev">
-        
             <span class="carousel-control-prev-icon"></span>
             <span class="sr-only">Anterior</span>
-
         </a>
+
         <a class="carousel-control-next" href="#carouselSite" role="button" data-slide="next">
-        
             <span class="carousel-control-next-icon"></span>
             <span class="sr-only">Avançar</span>
-       </a>                                                 <!--Termino dos Controles do Do Carrosel-->
+        </a>
+        <!--Termino dos Controles do Do Carrosel-->
 
-                                                                    <!--Termino Do Carrosel-->
+    </div>
+    <!--Termino Do Carrosel-->
 
-    </div>   
-    
-    
-    
-
-
-                                                                    <!--Conteiner das miniaturas dos produtos -->  
-    
+    <!--Conteiner das miniaturas dos produtos -->
     <div class="jumbotron jumbotron-fluid">
 
+        <!--Controle da Exibiçao dos produtos-->
         <div class="container">
-            <h2 class="text-center" >Categorias</h2>                                                         <!--Controle da Exibiçao dos produtos-->
+            <h2 class="text-center" >Categorias</h2>
             <div class="row">
-                
-
                 <div class="col-12 ">
-
                     <ul class="nav nav-pills justify-content-center" id="pills-nav" role="tablist">
-                        
+
                         <li class="nav-item">
                             <a class="text-dark nav-link active" id="nav-pills-01" data-toggle="pill" href="#nav-item-01">Iron studios</a>
                         </li>
@@ -243,164 +216,145 @@
                     </ul>
 
                     <div class="tab-content" id="nav-pills-content">
-                                                                    <!-- fim do controle dos produtos -->
+                    <!-- fim do controle dos produtos -->
 
-                                                                    <!--Miniaturas de Automoveis -->
+
                         <!--Item 1-->
                         <!--Miniaturas de Carrinhos-->
                         <div class="tab-pane fade show active" id="nav-item-01" role="tabpanel">
                             <div class="my-5">
                                 <div class="row">
                                     <div class="col-12 text-center my-5">
-                                        
 
-                                        <h1 class="dysplay-2"> Miniaturas da IronStudios </h1> 
-                                    
+                                        <h1 class="dysplay-2"> Miniaturas da IronStudios </h1>
+
                                         <div class="row mb-5 my-5 ">
-                                        
-                                            <!--card do produto 1 -->
-                                            
-                                                  
-                                                    {% for produto in produtos %}
-                                                        {% ifequal produto.id_fabricante.nome "IronStudios" %}
-                                                            <div class="col-sm-3 my-5">
-                                                                <div class="card aument-transi">
-                                                                    
-                                                                            <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>                                                            
-                                                                    
-                                                                </a>
-                                                                
-                                                                <div class="card-body">                        
-                                                                    <h5 class="card-title text-center " style="width: 200px;height:50px ;">
-                                                                            {{ produto.titulo }}
-                                                                    </h5>
-                                                                    <h5 class="card-title text-center text-secondary " style="width: 200px;height:40px ;">
-                                                                    Escala:  {{ produto.escala }}
-                                                                </h5>
-                                                                        
-                                                                    <h4 class="card-text text-center text-success" style="width: 200px;height:16px ;">
-                                                                            R$ {{ produto.valor }} <h6 class="text-danger">Em até 12x sem juros</h6>
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                        {% endifequal %}
-                                                    {% endfor %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Item 2-->
-                        <!--Miniaturas de Aviões-->
-
-                        <div class="tab-pane fade" id="nav-item-02" role="tabpanel">
-
-                            <div class="my-5">
-                                <div class="row">
-                                    <div class="col-12 text-center my-5">
-                                
-                                            <h1 class="dysplay-2"> Miniaturas da Bandai nanco</h1> 
-                                 
-                                        <div class="row mb-5 my-5 ">                                            
 
                                             <!--card do produto 1 -->
-
                                             {% for produto in produtos %}
-                                                {% ifequal produto.id_fabricante.nome "bandai" %}
+                                                {% ifequal produto.id_fabricante.nome "IronStudios" %}
                                                     <div class="col-sm-3 my-5">
                                                         <div class="card aument-transi">
-                                                            
                                                             <a class="list-inline-item" href="{% url 'url_exibir_produto' produto.id %}">
-                                                                
-                                                                        <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>                                                            
-                                                                
+                                                                <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>
                                                             </a>
-                                                            
-                                                            <div class="card-body">                        
+
+                                                            <div class="card-body">
                                                                 <h5 class="card-title text-center " style="width: 200px;height:50px ;">
-                                                                        {{ produto.titulo }}
+                                                                    {{ produto.titulo }}
                                                                 </h5>
+
                                                                 <h5 class="card-title text-center text-secondary " style="width: 200px;height:40px ;">
-                                                                Escala:  {{ produto.escala }}
-                                                            </h5>
-                                                                    
+                                                                    Escala:  {{ produto.escala }}
+                                                                </h5>
+
                                                                 <h4 class="card-text text-center text-success" style="width: 200px;height:16px ;">
-                                                                        R$ {{ produto.valor }} <h6 class="text-danger">Em até 12x sem juros</h6>
+                                                                    R$ {{ produto.valor }} <h6 class="text-danger">Em até 12x sem juros</h6>
                                                                 </h4>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 {% endifequal %}
                                             {% endfor %}
-                                            </div>
-                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>                       
+                        </div>
+
+                        <!--Miniaturas da Bandai-->
+                        <div class="tab-pane fade" id="nav-item-02" role="tabpanel">
+                            <div class="my-5">
+                                <div class="row">
+                                    <div class="col-12 text-center my-5">
+                                        <h1 class="dysplay-2"> Miniaturas da Bandai nanco</h1>
+
+                                        <div class="row mb-5 my-5 ">
+
+                                            <!--card do produto 1 -->
+                                            {% for produto in produtos %}
+                                                {% ifequal produto.id_fabricante.nome "bandai" %}
+                                                    <div class="col-sm-3 my-5">
+                                                        <div class="card aument-transi">
+                                                            <a class="list-inline-item" href="{% url 'url_exibir_produto' produto.id %}">
+                                                                <img class="card-img" src="{{ produto.foto.url }}" style="width: 200px;height:200px ;"> <br>
+                                                            </a>
+
+                                                            <div class="card-body">
+                                                                <h5 class="card-title text-center " style="width: 200px;height:50px ;">
+                                                                    {{ produto.titulo }}
+                                                                </h5>
+
+                                                                <h5 class="card-title text-center text-secondary " style="width: 200px;height:40px ;">
+                                                                    Escala:  {{ produto.escala }}
+                                                                </h5>
+
+                                                                <h4 class="card-text text-center text-success" style="width: 200px;height:16px ;">
+                                                                    R$ {{ produto.valor }} <h6 class="text-danger">Em até 12x sem juros</h6>
+                                                                </h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endifequal %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>                                                
-        </div>                                                      
-
-                                                                            <!--Rodapé-->
-    
-
+            </div>
         </div>
-        <div class="row mt-3">
-            <div class='col-12'><hr></div>
-            <div class="col-sm-4 mt-2 text-center">
-                <h4 class="title"> Pagamentos</h4>
-                <img class="box-flags sm-4" src="https://ik.imagekit.io/VictorParavatti/pagamento_hBRNbFILzx1.png" alt="Imagem Pagamentos" height="60">
+    </div>
+    <!--Fim das miniaturas -->
 
-            </div>
-            <div class="col-sm-4 mt-2 text-center">
-                <h4 class="title"> Certificados De Segurança</h4>
-                <img class="box-flags sm-4" src="https://ik.imagekit.io/VictorParavatti/selo_TTwmniVKd9F.png" alt="Imagem Pagamentos" height="80">
-                <img class="box-flags sm-4" src="https://ik.imagekit.io/VictorParavatti/google_safe_browsing_zGZ7CGtrpdw.png" alt="Imagem Pagamentos" height="40">
-                <img class="box-flags " src="https://ik.imagekit.io/VictorParavatti/compra_segura_0ujPr6ZwK.png" alt="Imagem Pagamentos" height="30">
-
-            </div>
-            <div class="col-sm-4 mt-2 text-center">
-                <h4 class="title"> Institucional </h4>
-                <div class="list-group">
-                    <a href="#" class="list-group-item-action list-group">Como Comprar</a>
-                    <a href="#" class="list-group-item-action list-group">Como Pagar</a>
-                    <a href="#" class="list-group-item-action list-group">Nossa Equipe</a>
-                </div>
-                
+    <!--Rodapé-->
+    <div class="row mt-3">
+        <div class='col-12'><hr></div>
+        <div class="col-sm-4 mt-2 text-center">
+            <h4 class="title"> Pagamentos</h4>
+            <img class="box-flags sm-4" src="https://ik.imagekit.io/VictorParavatti/pagamento_hBRNbFILzx1.png" alt="Imagem Pagamentos" height="60">
         </div>
 
-                                                                                <!-- Citação-->
+        <div class="col-sm-4 mt-2 text-center">
+            <h4 class="title"> Certificados De Segurança</h4>
+            <img class="box-flags sm-4" src="https://ik.imagekit.io/VictorParavatti/selo_TTwmniVKd9F.png" alt="Imagem Pagamentos" height="80">
+            <img class="box-flags sm-4" src="https://ik.imagekit.io/VictorParavatti/google_safe_browsing_zGZ7CGtrpdw.png" alt="Imagem Pagamentos" height="40">
+            <img class="box-flags " src="https://ik.imagekit.io/VictorParavatti/compra_segura_0ujPr6ZwK.png" alt="Imagem Pagamentos" height="30">
+        </div>
+
+        <div class="col-sm-4 mt-2 text-center">
+            <h4 class="title"> Institucional </h4>
+            <div class="list-group">
+                <a href="#" class="list-group-item-action list-group">Como Comprar</a>
+                <a href="#" class="list-group-item-action list-group">Como Pagar</a>
+                <a href="#" class="list-group-item-action list-group">Nossa Equipe</a>
+            </div>
+        </div>
+
+        <!-- Citação-->
         <div class="col-12 mt-5">
             <blockquote>
                 <p class="mb-2 ml-4  mr-4 text-black-50"> 2020 © Todos os Direitos Reservados - Minimals Comércio de Brinquedos Ltda  |
-                    R. Das flores, 108 - casa - Fonte Alta - Extrema-MG / CEP: 37640-000 (35) 98833-6321 CNPJ 08.004.619/0001-86 
+                    R. Das flores, 108 - casa - Fonte Alta - Extrema-MG / CEP: 37640-000 (35) 98833-6321 CNPJ 08.004.619/0001-86
                     <p class="ml-4 mr-4 text-black-50 "> Fotos meramente ilustrativas |
-                    Ofertas válidas enquanto durarem nossos estoques | Vendas sujeitas à análise e confirmação de dados.
-                    Os preços, promoções e condições de pagamento são válidos exclusivamente para compras efetuadas em nossa loja virtual.</p>
+                        Ofertas válidas enquanto durarem nossos estoques | Vendas sujeitas à análise e confirmação de dados.
+                        Os preços, promoções e condições de pagamento são válidos exclusivamente para compras efetuadas em nossa loja virtual.
+                    </p>
                 </p>
             </blockquote>
         </div>
     </div>
 
 
-    
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+
     <script>
         window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')
     </script>
-  
-   
-
-
 
 </body>
 </html>

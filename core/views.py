@@ -2,12 +2,11 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.decorators import login_required
 from core.models import Cliente, Produto, Funcionario, Cargo, Setor, Fabricante, Pagamento, \
     Status, TipoSolicitacao 
 from core.forms import FormCliente, FormProduto, FormFuncionario, FormCargo, FormSetor, \
     FormFabricante, FormStatus, FormTipoSolicitacao, FormPagamento
-
+from django.contrib import messages
 
 
 def home(request):
@@ -20,6 +19,59 @@ def home(request):
         produtos = Produto.objects.all()
     contexto = {'produtos': produtos}
     return render(request, 'core/index.html', contexto)
+
+
+def login_cliente(request):
+
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        clientes = Cliente.objects.all()
+        contexto = {}
+        contador = 1
+
+        for cliente in clientes:
+            if cliente.email == email:
+                if cliente.senha == senha:
+                    contexto['nome'] = cliente.nome
+                    contexto['cliente'] = True
+                    return render(request, 'core/index.html', contexto)
+                elif len(clientes) == contador:
+                    messages.info(request, 'Senha incorreta')
+                    return redirect('url_login_cliente')
+            elif len(clientes) == contador:
+                messages.info(request, 'E-mail não cadastrado')
+                return redirect('url_login_cliente')
+
+        contador += 1
+
+    else:
+        return render(request, 'core/login_clinte.html')
+
+
+def login_funcionario(request):
+
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        funcionarios = Funcionario.objects.all()
+        contexto = {}
+        contador = 1
+
+        for contador, funcionario in enumerate(funcionarios):
+            if funcionario.email == email:
+                if funcionario.senha == senha:
+                    contexto['nome'] = funcionario.nome
+                    contexto['funcionario'] = True
+                    return render(request, 'core/index.html', contexto)
+                elif len(funcionarios) == contador:
+                    messages.info(request, 'Senha incorreta')
+                    return redirect('url_login_funcionario')
+            elif len(funcionarios) == contador:
+                messages.info(request, 'E-mail não cadastrado')
+                return redirect('url_login_funcionario')
+
+        contador += 1
 
 
 class Cadastrar(generic.CreateView):
@@ -390,5 +442,3 @@ def excluir_pagamento(request, id):
         return redirect('url_listar_pagamento')
     else:
         return render(request, 'core/confirma_exclusao.html', contexto)
-
-
