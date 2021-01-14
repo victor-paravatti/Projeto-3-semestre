@@ -108,7 +108,7 @@ class ItensPedido(models.Model):
 class Funcionario(models.Model):
     matricula = models.CharField(max_length=8)
     nome = models.CharField(max_length=45)
-    e_mail = models.CharField(max_length=60)
+    email = models.CharField(max_length=60)
     telefone = models.CharField(max_length=11)
     senha = models.CharField(max_length=45)
     id_cargo = models.ForeignKey('Cargo', on_delete=models.CASCADE)
@@ -152,7 +152,7 @@ class Produto(models.Model):
     descricao = models.CharField(max_length=300)
     quantidade_disponivel = models.DecimalField(max_digits=10, decimal_places=0)
     unidades_vendidas = models.DecimalField(max_digits=10, decimal_places=0)
-    foto = models.ImageField(upload_to='fotos_produtos')
+    foto = models.ImageField(upload_to='fotos_produtos', null=True)
     id_funcionario = models.ForeignKey('Funcionario', on_delete=models.CASCADE)
     id_fabricante = models.ForeignKey('Fabricante', on_delete=models.CASCADE)
 
