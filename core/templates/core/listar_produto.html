@@ -125,28 +125,45 @@
     <!formulario do listar produto!>
 
     <div class='jumbotron'>
-        <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5"> Listar Produtos </h2>
+        <div class="container "> 
+            <h2 class="mt-5"> Lista de Produtos </h2>
             <div class="ml-5">
                 
                     {% csrf_token %}
                     {{ form.as_p}}
                    
-                </form>
-                    ---------------------------------<br>  
-                {%for produto in produtos%}
-                    Código: {{ produto.codigo }} &nbsp; <a href="{% url 'url_editar_produto' produto.id %}">Editar</a> &nbsp;
-                    <a href="{% url 'url_excluir_produto' produto.id %}">Excluir</a><br>
-                    Título: {{ produto.titulo }} <br>
-                    Valor: {{ produto.valor }} <br>
-                    Escala: {{ produto.escala }} <br>
-                    Lote: {{ produto.lote }} <br>
-                    Descrição: {{ produto.descricao }} <br>
-                    Quantidade Disponível: {{ produto.quantidade_disponivel }} <br>
-                    Fabricante: {{ produto.id_fabricante }} <br>
-                    <img src="{{ produto.foto.url }}" width="100"> <br>
-                    -------------------------------<br>
-                {% endfor %}
+                <div class="mt-5">
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th class="text-center" scope="col">Codigo</th>
+                            <th class="text-center"scope="col">Título</th>
+                            <th class="text-center"scope="col">Lote</th>
+                            <th class="text-center"scope="col">Descrição</th>
+                            <th class="text-center"scope="col">Quantidade Disponível</th>
+                            <th class="text-center"scope="col">Fabricante</th>
+                            <th class="text-center"scope="col">Valor</th>
+                            <th class="text-center"scope="col">Edição</th>
+                            <th class="text-center"scope="col">Excluir</th>
+                          </tr>
+                        </thead>
+                        {%for produto in produtos%}
+                            <tbody>
+                                <tr>
+                                <th  class="text-center" scope="row">{{ produto.codigo }}</th>
+                                <td class="text-center">{{ produto.titulo }}</td>
+                                <td class="text-center">{{ produto.lote }}</td>
+                                <td class="text-center">{{ produto.descricao }}</td>
+                                <td class="text-center">{{ produto.quantidade_disponivel }}</td>
+                                <td class="text-center">{{ produto.id_fabricante }}</td>
+                                <td class="text-center">{{ produto.valor }}</td>
+                                <td class="text-center"><a href="{% url 'url_editar_produto' produto.id %}">Editar</a></td>
+                                <td class="text-center"><a href="{% url 'url_excluir_cargo' produto.id %}">Excluir</a></td>
+                                </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                </div>                
             </div>                
         </div>
     </div>

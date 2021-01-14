@@ -362,12 +362,12 @@ def cadastrar_tipo_solicitacao(request):
 def listar_tipo_solicitacao(request):
     if request.POST:
         if request.POST['codigo']:
-            tipo_solicitacoes = TipoSolicitacao.objects.filter(codigo=request.POST['codigo'])
+            tipo_solicitacaos = TipoSolicitacao.objects.filter(codigo=request.POST['codigo'])
         else:
-            tipo_solicitacoes = TipoSolicitacao.objects.all()
+            tipo_solicitacaos = TipoSolicitacao.objects.all()
     else:
-        tipo_solicitacoes = TipoSolicitacao.objects.all()
-    contexto = {'tipo_solicitacoes': tipo_solicitacoes}
+        tipo_solicitacaos = TipoSolicitacao.objects.all()
+    contexto = {'tipo_solicitacaos': tipo_solicitacaos}
     return render(request, "core/listar_tipo_solicitacao.html", contexto)
 
 
