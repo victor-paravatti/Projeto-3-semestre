@@ -123,25 +123,36 @@
     </nav>
     <!formulario do atualizar produto!>
 
-    <div class='jumbotron'>
-        <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5"> Listar Produtos </h2>
-            <div class="ml-5">
-                <form method="post" enctype="multipart/form-data" class=" mt-5 ml-5">
-                    {% csrf_token %}
-                    {{ form.as_p}}
-                </form>
-                {%for produto in produtos%}
-                    Título: {{ produto.titulo }} <br>
-                    Valor: {{ produto.valor }} <br>
-                    Escala: {{ produto.escala }} <br>
-                    Lote: {{ produto.lote }} <br>
-                    Descrição: {{ produto.descricao }} <br>
-                    Fabricante: {{ produto.id_fabricante }} <br>
-                    <img src="{{ produto.foto.url }}" width="500"> <br>
-                {% endfor %}
-            </div>                
-        </div>
+    <div class='jumbotron mt-5'>
+        {%for produto in produtos%}
+            <h2 class="text-center" style="width: auto;height:75px ;"> {{ produto.titulo }}</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 mr-4 zoom">
+                        ​<figure class="figure">
+                            <img src="{{ produto.foto.url }}" class="figure-img img-fluid rounded float-left" alt="Imagem de um quadrado genérico com bordas arredondadas, em uma figure.">
+                            <figcaption class="figure-caption"><p>{{ produto.descricao }}</p></figcaption>
+                        </figure>
+                    </div>                    
+                    <div class="col-3">
+                        Valor: {{ produto.valor }} <br>
+                        Escala: {{ produto.escala }} <br>
+                        Lote: {{ produto.lote }} <br>
+                        Descrição: {{ produto.descricao }} <br>
+                        Fabricante: {{ produto.id_fabricante }} <br>
+
+                    </div>
+                    <div class="col-3">
+                        Valor: {{ produto.valor }} <br>
+                        Escala: {{ produto.escala }} <br>
+                        Lote: {{ produto.lote }} <br>
+                        Descrição: {{ produto.descricao }} <br>
+                        Fabricante: {{ produto.id_fabricante }} <br>
+
+                    </div>                     
+                </div>
+            </div>
+        {% endfor %}
     </div>
     <div class="row mt-3">
         <div class='col-12'><hr></div>
