@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'node_modules/bootstrap/compile/bootstrap.css'%}">
     <link rel="stylesheet" href="{% static 'node_modules/css/perso.css' %}">
-    <title>Cadastro</title>
+    <title>Minimals</title>
 </head>
 
 <body>
@@ -128,11 +128,13 @@
             <h2 class="text-center" style="width: auto;height:75px ;"> {{ produto.titulo }}</h2>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 mr-4 zoom">
-                        ​<figure class="figure">
-                            <img src="{{ produto.foto.url }}" class="figure-img img-fluid rounded float-left" alt="Imagem de um quadrado genérico com bordas arredondadas, em uma figure.">
-                            <figcaption class="figure-caption"><p>{{ produto.descricao }}</p></figcaption>
-                        </figure>
+                    <div class="col-lg-5 mr-4">
+                        <div class="zoom">
+                            ​<figure class="figure">
+                                <img src="{{ produto.foto.url }}" class="figure-img img-fluid rounded float-left img-container" alt="Imagem de um quadrado genérico com bordas arredondadas, em uma figure.">
+                                <figcaption class="figure-caption"><p>{{ produto.descricao }}</p></figcaption>
+                            </figure>
+                        </div>
                     </div>                    
                     <div class="col-3">
                         Valor: {{ produto.valor }} <br>
@@ -154,7 +156,7 @@
             </div>
         {% endfor %}
     </div>
-    <div class="row mt-3">
+    <div class="row mt-4">
         <div class='col-12'><hr></div>
         <div class="col-sm-4 mt-2 text-center">
             <h4 class="title"> Pagamentos</h4>
