@@ -124,37 +124,40 @@
     <!formulario do atualizar produto!>
 
     <div class='jumbotron mt-5'>
-        {%for produto in produtos%}
-            <h2 class="text-center" style="width: auto;height:75px ;"> {{ produto.titulo }}</h2>
-            <div class="container">
+        
+            <h2 class="text-center " style="width: auto;height:75px ;">{{ titulo }}<span class=" ml-4 badge badge-success">{{ status }}</span></h2>
+            <div class="container mt-5">
                 <div class="row">
                     <div class="col-lg-5 mr-4">
-                        <div class="zoom">
-                            ​<figure class="figure">
-                                <img src="{{ produto.foto.url }}" class="figure-img img-fluid rounded float-left img-container" alt="Imagem de um quadrado genérico com bordas arredondadas, em uma figure.">
-                                <figcaption class="figure-caption"><p>{{ produto.descricao }}</p></figcaption>
+                        <div class="">
+                            ​<figure class="figure img-container">
+                                <img src="{{ foto.url }}" class="figure-img img-fluid rounded float-left " alt="" style="width: 500px;height:500px;">
+                                <figcaption class="figure-caption"><p class="">{{ descricao }}</p></figcaption>
                             </figure>
                         </div>
                     </div>                    
                     <div class="col-3">
-                        Valor: {{ produto.valor }} <br>
-                        Escala: {{ produto.escala }} <br>
-                        Lote: {{ produto.lote }} <br>
-                        Descrição: {{ produto.descricao }} <br>
-                        Fabricante: {{ produto.id_fabricante }} <br>
+                        <h3 class="text-black">Descrição</h3>
+                        <h6 class="text-secondary mt-3">Escla da peça: {{ escala }}</h6>
+                        <h6 class="text-secondary">Numero do lote: ({{ lote }})</h6>
+                        <h6 class="text-secondary">Fabricante: ({{ fabricante }})</h6>
+                        
 
                     </div>
                     <div class="col-3">
-                        Valor: {{ produto.valor }} <br>
-                        Escala: {{ produto.escala }} <br>
-                        Lote: {{ produto.lote }} <br>
-                        Descrição: {{ produto.descricao }} <br>
-                        Fabricante: {{ produto.id_fabricante }} <br>
-
+                        <h2 class="text-success text-center mt-5">Total</h2>
+                        <h4 class="text-success text-center ">R$: {{ valor }}</h4>
+                        <h6 class="text-danger text-center mt-3"> 4x de R$ {{ parcela }}</h6>
+                        
+                        <button type="button" class="btn btn-success btn-lg btn-block mt-3">
+                            <h3 class="text-white">Comprar</h3>
+                            <h6 class="text-white"> und: {{ quantidade }}</h6>    
+                        </button>  
+                                             
                     </div>                     
                 </div>
             </div>
-        {% endfor %}
+        
     </div>
     <div class="row mt-4">
         <div class='col-12'><hr></div>

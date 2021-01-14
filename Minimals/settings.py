@@ -129,6 +129,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_files')
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-
 LANGUAGE_CODE = 'pt-br'
 USE_I18N = True
