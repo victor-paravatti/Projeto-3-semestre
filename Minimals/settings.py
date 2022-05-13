@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -134,4 +134,3 @@ LOGOUT_REDIRECT_URL = '/'
 LANGUAGE_CODE = 'pt-br'
 USE_I18N = True
 
-django_heroku.settings(locals())
