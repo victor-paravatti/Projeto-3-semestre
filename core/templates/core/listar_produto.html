@@ -38,7 +38,7 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-dark " href="carrinho/">
+                        <a class="nav-link text-dark " href="/carrinho">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
                             </svg>
@@ -125,28 +125,45 @@
     <!formulario do listar produto!>
 
     <div class='jumbotron'>
-        <div class="container col-xs-12 col-sm-6 col-md-6 col-lg-3"> 
-            <h2 class="mt-5"> Listar Produtos </h2>
+        <div class="container "> 
+            <h2 class="mt-5"> Lista de Produtos </h2>
             <div class="ml-5">
                 
                     {% csrf_token %}
                     {{ form.as_p}}
                    
-                </form>
-                    ---------------------------------<br>  
-                {%for produto in produtos%}
-                    Código: {{ produto.codigo }} &nbsp; <a href="{% url 'url_editar_produto' produto.id %}">Editar</a> &nbsp;
-                    <a href="{% url 'url_excluir_produto' produto.id %}">Excluir</a><br>
-                    Título: {{ produto.titulo }} <br>
-                    Valor: {{ produto.valor }} <br>
-                    Escala: {{ produto.escala }} <br>
-                    Lote: {{ produto.lote }} <br>
-                    Descrição: {{ produto.descricao }} <br>
-                    Quantidade Disponível: {{ produto.quantidade_disponivel }} <br>
-                    Fabricante: {{ produto.id_fabricante }} <br>
-                    <img src="{{ produto.foto.url }}" width="100"> <br>
-                    -------------------------------<br>
-                {% endfor %}
+                <div class="mt-5">
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th class="text-center" scope="col">Codigo</th>
+                            <th class="text-center"scope="col">Título</th>
+                            <th class="text-center"scope="col">Lote</th>
+                            <th class="text-center"scope="col">Descrição</th>
+                            <th class="text-center"scope="col">Quantidade Disponível</th>
+                            <th class="text-center"scope="col">Fabricante</th>
+                            <th class="text-center"scope="col">Valor</th>
+                            <th class="text-center"scope="col">Edição</th>
+                            <th class="text-center"scope="col">Excluir</th>
+                          </tr>
+                        </thead>
+                        {%for produto in produtos%}
+                            <tbody>
+                                <tr>
+                                <th class="text-center" scope="row">{{ produto.codigo }}</th>
+                                <td class="text-center">{{ produto.titulo }}</td>
+                                <td class="text-center">{{ produto.lote }}</td>
+                                <td class="text-center">{{ produto.descricao }}</td>
+                                <td class="text-center">{{ produto.quantidade_disponivel }}</td>
+                                <td class="text-center">{{ produto.id_fabricante }}</td>
+                                <td class="text-center">{{ produto.valor }}</td>
+                                <td class="text-center"><a href="{% url 'url_editar_produto' produto.id %}">Editar</a></td>
+                                <td class="text-center"><a href="{% url 'url_excluir_produto' produto.id %}">Excluir</a></td>
+                                </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
+                </div>                
             </div>                
         </div>
     </div>

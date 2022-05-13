@@ -35,7 +35,7 @@ def login_cliente(request):
                 if cliente.senha == senha:
                     contexto['nome'] = cliente.nome
                     contexto['cliente'] = True
-                    return render(request, 'core/index.html', contexto)
+                    return render(request,'core/index.html', contexto)
                 elif len(clientes) == contador:
                     messages.info(request, 'Senha incorreta')
                     return redirect('url_login_cliente')
@@ -47,31 +47,6 @@ def login_cliente(request):
 
     else:
         return render(request, 'core/login_clinte.html')
-
-
-def login_funcionario(request):
-
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        senha = request.POST.get('senha')
-        funcionarios = Funcionario.objects.all()
-        contexto = {}
-        contador = 1
-
-        for contador, funcionario in enumerate(funcionarios):
-            if funcionario.email == email:
-                if funcionario.senha == senha:
-                    contexto['nome'] = funcionario.nome
-                    contexto['funcionario'] = True
-                    return render(request, 'core/index.html', contexto)
-                elif len(funcionarios) == contador:
-                    messages.info(request, 'Senha incorreta')
-                    return redirect('url_login_funcionario')
-            elif len(funcionarios) == contador:
-                messages.info(request, 'E-mail não cadastrado')
-                return redirect('url_login_funcionario')
-
-        contador += 1
 
 
 class Cadastrar(generic.CreateView):
@@ -139,7 +114,23 @@ def excluir_produto(request, id):
 
 def exibir_produto(request, id):
     produtos = Produto.objects.filter(id=id)
-    contexto = {'produtos': produtos}
+
+    for produto in produtos:
+        titulo = produto.titulo
+        descricao = produto.descricao
+        escala = produto.escala
+        lote = produto.lote
+        fabricante = produto.id_fabricante
+        valor = produto.valor
+        foto = produto.foto
+        status = produto.id_status
+        quantidade = produto.quantidade_disponivel
+
+    parcela = valor / 4
+
+    contexto = {'titulo': titulo, 'descricao': descricao, 'escala': escala,
+                'lote': lote, 'fabricante': fabricante, 'valor': valor, 'parcela': parcela,
+                'foto': foto, 'status': status, 'quantidade': quantidade}
     return render(request, "core/exibir_produto.html", contexto)
 
 
@@ -371,12 +362,12 @@ def cadastrar_tipo_solicitacao(request):
 def listar_tipo_solicitacao(request):
     if request.POST:
         if request.POST['codigo']:
-            tipo_solicitacoes = TipoSolicitacao.objects.filter(codigo=request.POST['codigo'])
+            tipo_solicitacaos = TipoSolicitacao.objects.filter(codigo=request.POST['codigo'])
         else:
-            tipo_solicitacoes = TipoSolicitacao.objects.all()
+            tipo_solicitacaos = TipoSolicitacao.objects.all()
     else:
-        tipo_solicitacoes = TipoSolicitacao.objects.all()
-    contexto = {'tipo_solicitacoes': tipo_solicitacoes}
+        tipo_solicitacaos = TipoSolicitacao.objects.all()
+    contexto = {'tipo_solicitacaos': tipo_solicitacaos}
     return render(request, "core/listar_tipo_solicitacao.html", contexto)
 
 

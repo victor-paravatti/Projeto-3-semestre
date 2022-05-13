@@ -1,13 +1,14 @@
 from django.contrib import admin
 from django.urls import path, include
-from core.views import Cadastrar, home, carinho, cadastrar_cliente, cadastrar_produto, \
-    listar_produto, editar_produto, excluir_produto, exibir_produto, cadastrar_funcionario, \
-    listar_funcionario, editar_funcionario, excluir_funcionario, cadastrar_cargo, listar_cargo, \
-    editar_cargo, excluir_cargo, cadastrar_setor, listar_setor, editar_setor, excluir_setor, \
-    cadastrar_fabricante, listar_fabricante, editar_fabricante, excluir_fabricante, cadastrar_status, \
-    listar_status, editar_status, excluir_status, cadastrar_tipo_solicitacao, listar_tipo_solicitacao, \
-    editar_tipo_solicitacao, excluir_tipo_solicitacao, cadastrar_pagamento, listar_pagamento, \
-    editar_pagamento, excluir_pagamento, login_cliente, login_funcionario
+from core.views import (Cadastrar, home, carinho, cadastrar_cliente, cadastrar_produto,
+    listar_produto, editar_produto, excluir_produto, exibir_produto, cadastrar_funcionario, 
+    listar_funcionario, editar_funcionario, excluir_funcionario, cadastrar_cargo, listar_cargo, 
+    editar_cargo, excluir_cargo, cadastrar_setor, listar_setor, editar_setor, excluir_setor, 
+    cadastrar_fabricante, listar_fabricante, editar_fabricante, excluir_fabricante, cadastrar_status, 
+    listar_status, editar_status, excluir_status, cadastrar_tipo_solicitacao, listar_tipo_solicitacao, 
+    editar_tipo_solicitacao, excluir_tipo_solicitacao, cadastrar_pagamento, listar_pagamento, 
+    editar_pagamento, excluir_pagamento, login_cliente,
+)
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -18,7 +19,6 @@ urlpatterns = [
     path('', home, name='url_home'),
     path('cadastrar/', Cadastrar.as_view(), name='url_cadastrar'),
     path('login_cliente/', login_cliente, name='url_login_cliente'),
-    path('login_funcionario/', login_funcionario, name='url_login_funcionario'),
     path('carrinho/', carinho, name='url_carrinho'),
     path('cadastrar_cliente/', cadastrar_cliente, name='url_cadastrar_cliente'),
     path('cadastrar_produto/', cadastrar_produto, name='url_cadastrar_produto'),
